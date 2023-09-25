@@ -1,7 +1,8 @@
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:flutter/material.dart';
+
 class AppointmentScreen extends StatelessWidget {
-  const AppointmentScreen({super.key});
+  const AppointmentScreen();
 
   @override
   Widget build(BuildContext context) {

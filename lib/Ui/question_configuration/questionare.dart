@@ -7,8 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class Questionare extends StatelessWidget {
-  Questionare({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

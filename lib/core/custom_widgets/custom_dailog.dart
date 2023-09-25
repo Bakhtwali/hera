@@ -13,12 +13,7 @@ class Customdailog extends StatelessWidget {
   final subtext;
   final buttonText;
   Customdailog(
-      {super.key,
-      this.picture,
-      this.text,
-      this.subtext,
-      this.buttonText,
-      this.ontap});
+      {this.picture, this.text, this.subtext, this.buttonText, this.ontap});
 
   @override
   Widget build(BuildContext context) {
@@ -71,13 +66,13 @@ class CustomCallDailog extends StatelessWidget {
   final button2text;
   final OnTap2;
   CustomCallDailog(
-      {super.key,
-      this.picture,
+      {this.picture,
       this.text,
       this.subtext,
       this.buttonText,
       this.ontap,
-      this.button2text,this.OnTap2});
+      this.button2text,
+      this.OnTap2});
 
   @override
   Widget build(BuildContext context) {

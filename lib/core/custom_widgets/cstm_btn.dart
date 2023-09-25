@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final buttonTitle, onPress;
-  const CustomButton({super.key, this.buttonTitle, this.onPress});
+  const CustomButton({this.buttonTitle, this.onPress});
 
   @override
   Widget build(BuildContext context) {

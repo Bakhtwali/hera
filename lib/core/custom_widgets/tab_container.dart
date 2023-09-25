@@ -10,7 +10,6 @@ class TabBarContainer extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   const TabBarContainer({
-    super.key,
     required this.text,
     required this.color,
     required this.textColor,

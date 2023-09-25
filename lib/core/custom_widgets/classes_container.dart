@@ -14,7 +14,7 @@ class ClassesContainer extends StatelessWidget {
   final Color sheduleTextColor;
   final VoidCallback onTap;
   ClassesContainer({
-    super.key,
+   // super.key,
     required this.image,
     required this.name,
     required this.time,
@@ -91,7 +91,7 @@ class DecriptionTextRow extends StatelessWidget {
   final String text2;
   final Color? color;
   const DecriptionTextRow({
-    super.key,
+   // super.key,
     this.color,
     required this.text1,
     required this.text2,

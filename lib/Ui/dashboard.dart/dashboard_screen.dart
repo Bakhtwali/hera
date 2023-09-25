@@ -1,13 +1,20 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:fl_chart/fl_chart.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class DashboardScreen extends StatefulWidget {
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  DateTime today = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +27,7 @@ class DashboardScreen extends StatelessWidget {
           SideBar(),
           Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
@@ -92,54 +100,134 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 30.h),
+
                 // main column
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CustomContainer(
-                      image: 'assets/asd.png', // Provide the correct image path
-                      text1: 'Total',
-                      text2: 'Institutions',
-                      text3: '300',
-                    ),
-                    SizedBox(width: 20),
-                    CustomContainer(
-                      image: 'assets/asd.png', // Provide the correct image path
-                      text1: 'Private',
-                      text2: 'Colleges',
-                      text3: '200',
-                    ),
-                    SizedBox(width: 20),
-                    CustomContainer(
-                      image: 'assets/asd.png', // Provide the correct image path
-                      text1: 'Private',
-                      text2: 'Medical Colleges',
-                      text3: '14',
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 100.0),
+                  child: Row(
+                    children: [
+                      Dashboard_containers(
+                          title: '100', subtitle: 'Inspection(s) Forwarded'),
+                      SizedBox(width: 10.0),
+                      Dashboard_containers(
+                          title: '50', subtitle: 'Inspection(s) Completed'),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Dashboard_containers(
+                          title: '50', subtitle: 'Inspection(s) Pending'),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(width: 20),
-                    CustomContainer(
-                      image: 'assets/asd.png', // Provide the correct image path
-                      text1: 'Private',
-                      text2: 'Uniersities',
-                      text3: '10',
+                SizedBox(height: 20.0),
+                Card(
+                  child: Container(
+                    child: Row(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: 700.w,
+                            height: 750.h,
+                            //color: Colors.red, // You can change the color as desired
+                            child: TableCalendar(
+                              focusedDay: today,
+                              firstDay: DateTime.utc(2010, 10, 16),
+                              lastDay: DateTime.utc(2099, 10, 16),
+                            )),
+                        SizedBox(
+                          width: 700.w,
+                          height: 750.h,
+                          //color: Colors.grey.withOpacity(1.0),
+                          child: PieChart(
+                            PieChartData(
+                              sections: [
+                                PieChartSectionData(
+                                  color: Colors.lightGreen.withOpacity(0.5),
+                                  value: 50,
+                                  title: 'Total Forwarded',
+                                  radius: 120,
+                                ),
+                                PieChartSectionData(
+                                  color: Colors.redAccent.withOpacity(0.5),
+                                  value: 50,
+                                  title: 'Pending',
+                                  radius: 120,
+                                ),
+                                PieChartSectionData(
+                                  color: Colors.blueAccent.withOpacity(0.5),
+                                  value: 50,
+                                  title: 'Completed',
+                                  radius: 120,
+                                ),
+                                // Add a section for Total if needed
+                              ],
+                              centerSpaceRadius: 70,
+                              sectionsSpace: 1,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 20),
-                    CustomContainer(
-                      image: 'assets/asd.png', // Provide the correct image path
-                      text1: 'Text 1',
-                      text2: 'Text 2',
-                      text3: 'Text 3',
-                    ),
-                  ],
+                  ),
                 )
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  //@override
+  //void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  //super.debugFillProperties(properties);
+  //properties.add(DiagnosticsProperty<DateTime>('today', today));
+  //}
+}
+
+class Dashboard_containers extends StatelessWidget {
+  final String title;
+  final String subtitle;
+
+  Dashboard_containers({
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300.w,
+      height: 100.h,
+      decoration: BoxDecoration(
+        color: Colors.green.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(5),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 7,
+            offset: Offset(
+                0, 2), // Adjust the values to control the shadow's position
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            subtitle,
+            style: TextStyle(
+              fontSize: 15.0,
+              color: Colors.white,
             ),
           ),
         ],

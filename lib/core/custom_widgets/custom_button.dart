@@ -14,8 +14,7 @@ class CustomButton extends StatelessWidget {
   final Fontweight;
   final width;
   CustomButton(
-      {super.key,
-      this.width,
+      {this.width,
       this.backgroungColor,
       this.borderColor,
       this.text,
@@ -54,8 +53,7 @@ class buttonWithTextAndImage extends StatelessWidget {
   final borderColor;
   final ontap;
   buttonWithTextAndImage(
-      {super.key,
-      this.image,
+      {this.image,
       this.text,
       this.backgroundColor,
       this.borderColor,

@@ -1,3 +1,4 @@
+import 'package:englishtalkedesktop/Ui/dashboard.dart/Institution_profile.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:englishtalkedesktop/Ui/sign_in_screen/sign_in.dart';
@@ -13,7 +14,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp();
 
   // This widget is the root of your ation.
   @override
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: SignInScreen(),
+          home: DashboardScreen(),
         );
       },
     );

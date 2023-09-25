@@ -21,8 +21,7 @@ class LongTextFieldWidget extends StatelessWidget {
   final void Function(String)? onChanged;
   final color;
   const LongTextFieldWidget(
-      {super.key,
-      this.hintfontsize,
+      {this.hintfontsize,
       this.hintTextFontWeight,
       this.hintTextColor,
       this.ontap,
@@ -124,8 +123,7 @@ class SearchTextFieldWidget extends StatelessWidget {
   final bool? readOnly;
   final void Function(String)? onChanged;
   const SearchTextFieldWidget(
-      {super.key,
-      this.suffixonTap,
+      {this.suffixonTap,
       this.hintTextColor,
       // required this.controller,
       required this.hintText,
@@ -240,8 +238,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final onchanged;
   final String? Function(String?)? validator;
   const AppTextFieldWidget(
-      {super.key,
-      this.prefixColor,
+      {this.prefixColor,
       this.hintTextColor,
       this.borderRaduis,
       this.color,

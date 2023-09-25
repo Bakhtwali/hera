@@ -9,8 +9,7 @@ class CustomText extends StatelessWidget {
   final fontSized;
   final fontWeight;
   const CustomText(
-      {super.key,
-      this.alignment,
+      {this.alignment,
       required this.text,
       this.color,
       this.fontSized,
