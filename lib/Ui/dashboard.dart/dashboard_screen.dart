@@ -2,11 +2,11 @@
 
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override

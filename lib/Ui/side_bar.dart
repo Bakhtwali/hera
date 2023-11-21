@@ -237,15 +237,12 @@
 //   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 // }
 
-// ignore_for_file: prefer_const_constructors
-
-import 'package:englishtalkedesktop/Ui/appointments_screen/appointment_screen.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/institution_profile.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen1.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen2.dart';
-import 'package:englishtalkedesktop/Ui/requests_screen/request_sreen.dart';
-import 'package:englishtalkedesktop/Ui/question_configuration/questionare.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/screen3.dart';
 import 'package:englishtalkedesktop/core/Constants/constants.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/SizedBox.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_text.dart';
@@ -372,28 +369,46 @@ class _SideBarState extends State<SideBar> {
                         },
                       ),
                       if (_isQuestionConfigExpanded)
-                        Column(
-                          children: [
-                            Center(
-                              child: ListTile(
-                                title: Text('Screen 1'),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16.0), // Adjust the padding as needed
+                          child: Column(
+                            children: [
+                              Center(
+                                child: ListTile(
+                                  leading:
+                                      Icon(Icons.settings), // Icon added here
+                                  title: Text('Questions Configuration',
+                                      style: TextStyle(fontSize: 10)),
+                                  onTap: () {
+                                    Get.toNamed('/screen1');
+                                  },
+                                ),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.list), // Icon added here
+                                title: Text(
+                                  'View All Questions',
+                                  style: TextStyle(fontSize: 10),
+                                ),
                                 onTap: () {
-                                  Get.toNamed('/screen1');
+                                  Get.toNamed('/screen2');
                                 },
                               ),
-                            ),
-                            ListTile(
-                              title: Text('Screen 2'),
-                              onTap: () {
-                                Get.toNamed('/screen2');
-                              },
-                            ),
-                            ListTile(
-                              title: Text('Screen 3'),
-                              onTap: () {},
-                            ),
-                          ],
-                        ),
+                              ListTile(
+                                leading: Icon(Icons
+                                    .swap_horizontal_circle), // Icon added here
+                                title: Text(
+                                  'Question(s) Swapping',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                onTap: () {
+                                  // Handle the onTap event here
+                                },
+                              ),
+                            ],
+                          ),
+                        )
                     ],
                   );
                 } else {
@@ -463,7 +478,7 @@ List<GetPage> pages = [
   ),
   GetPage(
     name: "/Home4Screen",
-    page: () => AppointmentScreen(),
+    page: () => Screen3(),
     transition: Transition.fadeIn,
   ),
   GetPage(

@@ -1,15 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:io';
+
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
-import 'package:table_calendar/table_calendar.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'package:intl/intl.dart';
 
 class InstitutionProfile extends StatefulWidget {
   @override
@@ -295,104 +294,286 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                         'Certificate/Other Attachement (Uploads)'),
                                     content: Column(
                                       children: [
-                                        Container(
-                                          width: 150,
-                                          height: 150,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey[200],
-                                            border: Border.all(
-                                              color: Colors.grey,
-                                              width: 2.0,
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFormField(
+                                                  decoration: InputDecoration(
+                                                    labelText:
+                                                        'HERA Certificate Upload',
+                                                    hintText:
+                                                        'Not Attached Yet',
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
+                                            ElevatedButton(
+                                              onPressed: _getImage,
+                                              child: Text("Select Image"),
+                                            ),
+                                          ],
+                                        ),
+                                        // The  Public Sector University Affiliation Certificate (KMU, Peshawar University or any)
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFormField(
+                                                  decoration: InputDecoration(
+                                                    labelText:
+                                                        'Public Sector University Certificate',
+                                                    hintText:
+                                                        'Not Attached Yet',
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: _getImage,
+                                              child: Text("Select Image"),
+                                            ),
+                                          ],
+                                        ),
+                                        // PNC Or Other Affiliation Booard Certficate Attached
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFormField(
+                                                  decoration: InputDecoration(
+                                                    labelText:
+                                                        'Council Affilation Certiificate (if any)',
+                                                    hintText:
+                                                        'Not Attached Yet',
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: _getImage,
+                                              child: Text("Select Image"),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFormField(
+                                                  decoration: InputDecoration(
+                                                    labelText:
+                                                        'Institution Logo /Banner',
+                                                    hintText:
+                                                        'Not Attached Yet',
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: _getImage,
+                                              child: Text("Select Image"),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Step(
+                                    title: Text('Enrolled Students Data'),
+                                    content: Column(
+                                      children: [
+                                        CustomTextField(
+                                          labelText: 'Class Name',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Session',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Male Students',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Female Students',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'NMDs Students',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText:
+                                              'Total Scholarship Advertised',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText:
+                                              'Total Scholarship Awarded',
+                                        ),
+                                        SizedBox(height: 20),
+                                        Row(
+                                          children: [
+                                            Spacer(), // Add Spacer to create equal space on the left
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Save Record'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space between buttons
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Update Record'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space between buttons
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Show All'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space on the right
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Step(
+                                    title: Text('Faculty Data'),
+                                    content: Column(
+                                      children: [
+                                        CustomTextField(
+                                          labelText: 'Employee Name',
+                                        ),
+                                        SizedBox(height: 10),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: cstListBox(
+                                            values: [
+                                              'Ph.D',
+                                              'FCPS',
+                                              'MBBS',
+                                              'MS',
+                                              'M.Phil',
+                                              'Master',
+                                              'BS',
+                                              'B.Sc',
+                                              'Metric (SSC)',
+                                              '8th Class Pass',
+                                              'Literate',
+                                              'Other'
+                                            ],
+                                            hint: 'Qualification',
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                              _imageAddressController
-                                                      .text.isEmpty
-                                                  ? 'No Image Address'
-                                                  : _imageAddressController
-                                                      .text,
-                                              textAlign: TextAlign.center,
-                                            ),
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Email Address',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'CNIC',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Phone Contact',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: '',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Highest Qualification',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Date of Joining',
+                                        ),
+                                        SizedBox(height: 10),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: cstListBox(
+                                            values: [
+                                              'Chancellor',
+                                              'Vice Chancellor',
+                                              'Rector',
+                                              'Director',
+                                              'Dean of Faculty',
+                                              'Head of Department (HoD)',
+                                              'Principal',
+                                              'Controller of Exaination',
+                                              'Administrator',
+                                              'Professor',
+                                              'Assistant Professor (AP)',
+                                              'Assistant',
+                                              'Teacher',
+                                              'Computer Operator',
+                                              'Clerk',
+                                              'Office Boy',
+                                              'Driver',
+                                              'Security Guard',
+                                              'Plumber',
+                                              'Electrician',
+                                              'IT Officer',
+                                            ],
+                                            hint: 'Current Designation',
                                           ),
                                         ),
                                         SizedBox(height: 20),
-                                        ElevatedButton(
-                                          onPressed: _getImage,
-                                          child: Text("Select Image"),
+                                        Row(
+                                          children: [
+                                            Spacer(), // Add Spacer to create equal space on the left
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Save Record'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space between buttons
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Update Record'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space between buttons
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Show All'),
+                                            ),
+                                            Spacer(), // Add Spacer to create equal space on the right
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Step(
+                                    title: Text(
+                                        'Complaints Lodged on PCP or Others'),
+                                    content: Column(
+                                      children: [
+                                        CustomTextField(
+                                          labelText:
+                                              'Total Complaints Lodged on PCP',
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
-                                      ],
-                                    ),
-                                  ),
-                                  Step(
-                                    title: Text('Institution Profile'),
-                                    content: Column(
-                                      children: [
-                                        Text(
-                                            'The Text Goes Here for Institution Profile'),
-                                        // You can add more content to this step as needed
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText:
+                                              'Total Complaints Emailed or Other Soruces',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText: 'Total Solved Complaints',
+                                        ),
+                                        SizedBox(height: 10),
+                                        CustomTextField(
+                                          labelText:
+                                              'Total Undissolved Complaints',
+                                        ),
+                                        SizedBox(height: 10),
                                       ],
                                     ),
                                   ),
@@ -438,3 +619,6 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
     );
   }
 }
+// The Class Data Grid starts Here
+
+
