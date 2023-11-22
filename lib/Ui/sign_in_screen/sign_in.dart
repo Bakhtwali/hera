@@ -5,12 +5,8 @@ import 'package:englishtalkedesktop/Ui/sign_in_screen/signin_provider.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
-
-import '../../models/enums/view_state.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -222,6 +218,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
             ),
+
+            ///
+            ///
+            ///this is testing
+            ///
+            ///
           ],
         ),
       );
