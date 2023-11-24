@@ -14,9 +14,9 @@ class _Screen1State extends State<Screen3> {
       body: Row(
         children: [
           SideBar(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: (Column(
                 children: [
                   CustomTextField(
