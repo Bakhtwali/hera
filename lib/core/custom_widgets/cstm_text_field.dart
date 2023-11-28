@@ -27,13 +27,13 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 60,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        // border: Border.all(color: Color(0xFF554279), width: 1),
+      //padding: EdgeInsets.symmetric(horizontal: 10),
+      /* decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFF554279), width: 1),
         borderRadius: BorderRadius.circular(5),
-      ),
+      ),*/
       child: TextFormField(
         style: TextStyle(color: Colors.black, fontSize: 14),
         initialValue: initialVal,
@@ -42,12 +42,12 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyBoardType,
         onChanged: onChanged,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(bottom: 12),
+          contentPadding: EdgeInsets.all(12),
           suffixIcon: suffixIcon,
           filled: fillColor,
           fillColor: Colors.white,
-          //border: OutlineInputBorder(),
-          // hintText: hintText,
+          border: OutlineInputBorder(),
+          hintText: hintText,
 
           labelText: labelText,
           // errorBorder: OutlineInputBorder(),
@@ -70,10 +70,19 @@ class cstListBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFF554279), width: 0),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      padding: EdgeInsets.all(10),
       width: double.infinity,
-      height: 56.0,
+      height: 60.0,
       child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          border: InputBorder.none, // Set the border to none
+          isDense: true,
+          contentPadding: EdgeInsets.zero,
+        ),
         isDense: true,
         items: values.map((String value) {
           return DropdownMenuItem<String>(

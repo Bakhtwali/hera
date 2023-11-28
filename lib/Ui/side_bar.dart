@@ -1,5 +1,6 @@
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/institution_profile.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/app_submission.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen1.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen2.dart';
@@ -40,7 +41,7 @@ class _SideBarState extends State<SideBar> {
             color: Color.fromARGB(255, 255, 255, 255)),
         width: 350.w,
         child: Column(children: [
-          CustomSizedBox(height: 45.h),
+          CustomSizedBox(height: 20.h),
           Container(
             //color: Colors.red,
             width: 100,
@@ -182,7 +183,7 @@ class _SideBarState extends State<SideBar> {
                     ),
                     title: ClipPath(
                       child: Container(
-                        height: 50.h,
+                        height: 70.h,
                         width: 270.w,
                         color: active
                             ? Colors.transparent
@@ -255,6 +256,10 @@ List<GetPage> pages = [
         Screen1(), // Replace 'Screen1' with the actual screen you want to open
     transition: Transition.fadeIn,
   ),
+  GetPage(
+    name: "/appsubmission",
+    page: () => appSubmssion(),
+  )
 ];
 List<SideBarModel> sidebarPage = [
   SideBarModel(text: "Dashboard", route: "/Home1", Image: Home),
@@ -264,9 +269,9 @@ List<SideBarModel> sidebarPage = [
   SideBarModel(
       text: "View All Users", route: "/view_all_users_route", Image: tick_icon),
   SideBarModel(
-      text: "Another User Action",
-      route: "/another_user_route",
-      Image: profile),
+      text: "App Submission Configuration",
+      route: "/appsubmission",
+      Image: message),
 ];
 
 class DiagonalClipper extends CustomClipper<Path> {

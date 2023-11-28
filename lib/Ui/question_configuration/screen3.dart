@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class Screen3 extends StatefulWidget {
   @override
-  State<Screen3> createState() => _Screen1State();
+  State<Screen3> createState() => _Screen3State();
 }
 
-class _Screen1State extends State<Screen3> {
+class _Screen3State extends State<Screen3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,56 +17,85 @@ class _Screen1State extends State<Screen3> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: (Column(
-                children: [
-                  CustomTextField(
-                    labelText: 'Enter User Name',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextField(
-                    labelText: 'Enter Email',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextField(
-                    labelText: 'Enter Password',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextField(
-                    labelText: 'Enter Confirm Password',
-                  ),
-                  SizedBox(height: 20.0),
-                  Row(
+              child: Card(
+                elevation: 5, // Adding elevation for the shadow effect
+                shadowColor: const Color.fromARGB(
+                    255, 255, 255, 255), // Set shadow color if needed
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Spacer(), // Add Spacer to create equal space on the left
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Save Record'),
+                      SizedBox(height: 40),
+                      Text(
+                        'Inspector/Assesor Profile Creation',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w100,
+                        ),
                       ),
-                      SizedBox(
-                        width: 8.0,
-                      ), // Add Spacer to create equal space between buttons
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Update Record'),
+                      SizedBox(height: 40),
+                      CustomTextField(
+                        labelText: 'Enter User Name',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.person),
+                          onPressed: () {
+                            // Action when the icon button is pressed
+                          },
+                        ),
                       ),
-                      SizedBox(
-                        width: 8.0,
-                      ), // Add Spacer to create equal space between buttons
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Show All'),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        labelText: 'Enter Email',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.email),
+                          onPressed: () {},
+                        ),
                       ),
-                      Spacer(), // Add Spacer to create equal space on the right
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        labelText: 'Enter Password',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.remove_red_eye_sharp),
+                          onPressed: () {},
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        labelText: 'Enter Confirm Password',
+                        suffixIcon: IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.remove_red_eye),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          const Spacer(),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Save Record'),
+                          ),
+                          SizedBox(width: 8.0),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Update Record'),
+                          ),
+                          SizedBox(width: 8.0),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Show All'),
+                          ),
+                          Spacer(),
+                        ],
+                      ),
                     ],
-                  )
-                ],
-              )),
+                  ),
+                ),
+              ),
             ),
           ),
         ],

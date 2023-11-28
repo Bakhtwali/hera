@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           getPages: pages,
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color.fromARGB(255, 244, 244, 244)),
             useMaterial3: true,
           ),
           home: DashboardScreen(),

@@ -68,13 +68,13 @@ class LongTextFieldWidget extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.r),
             borderSide: const BorderSide(
-              color: WhiteColor,
+              color: BlackColor,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.r),
             borderSide: BorderSide(
-              color: WhiteColor,
+              color: BlackColor,
             ),
           ),
 
