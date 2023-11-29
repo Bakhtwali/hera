@@ -15,13 +15,13 @@ void main() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
-            apiKey: "AIzaSyBtTliWN_WgN32W0tmzad78y5VURuImn0w",
-            authDomain: "newherainspection.firebaseapp.com",
-            projectId: "newherainspection",
-            storageBucket: "newherainspection.appspot.com",
-            messagingSenderId: "723209975214",
-            appId: "1:723209975214:web:56d810f70824aa2ca0443f",
-            measurementId: "G-4SR8K8YEER"));
+            apiKey: "AIzaSyA1zxnwyrhXe1MB5fGWX5bBdsBA-L3hMXQ",
+            authDomain: "herainspection-4e99a.firebaseapp.com",
+            projectId: "herainspection-4e99a",
+            storageBucket: "herainspection-4e99a.appspot.com",
+            messagingSenderId: "84768860017",
+            appId: "1:84768860017:web:8bb85c609f49e0432838d0",
+            measurementId: "G-4TLN77PSFT"));
   }
   runApp(const MyApp());
 }

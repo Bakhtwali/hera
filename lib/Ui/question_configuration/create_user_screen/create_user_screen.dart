@@ -13,8 +13,10 @@ class _Screen3State extends State<Screen3> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
+      //Any changes  in the Main Provider to catch and reflect it here.
       create: (context) => CreateUserProvider(),
       child: Consumer<CreateUserProvider>(
+        // consumer consumes it very differently
         builder: (context, model, child) => Scaffold(
           body: Row(
             children: [

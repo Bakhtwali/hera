@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:englishtalkedesktop/core/model/create_user_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,22 +10,47 @@ class CreateUserProvider extends ChangeNotifier {
   CreateUserModel createUserModel = CreateUserModel();
 
   createUserFunction() async {
-    // bool check=  checkValidation();
+    createUserModel.createat = DateTime.now();
+
+    bool check = checkValidation();
     try {
-      await FirebaseFirestore.instance.collection('appuser').add(
-            createUserModel.toJson(),
-          );
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: createUserModel.email!,
+              password: createUserModel.password!)
+          .then((value) {
+        log('app user added to auth section');
+      });
     } catch (e) {
-      print('this is error $e');
+      Get.snackbar('Error', 'error in creation $e',
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 400);
+    }
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('appuser')
+          .add(
+            createUserModel.toJson(),
+          )
+          .then((value) {
+        log('data added to appuser collection');
+        FirebaseFirestore.instance
+            .collection('appuser')
+            .doc(value.id)
+            .update({'id': value.id});
+      });
+    } catch (e) {
+      Get.snackbar('Error', 'error in creation $e',
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 400);
     }
     // Get.snackbar('Alert', 'this is snakebar',
     //     backgroundColor: Colors.teal,
     //     snackPosition: SnackPosition.BOTTOM,
     //     maxWidth: 400);
-    print('this is user name ${createUserModel.name}');
-    print('this is user email ${createUserModel.email}');
-    print('this is user password ${createUserModel.password}');
-    print('this is user confirm ${createUserModel.confirmPassword}');
   }
 
   checkValidation() {
