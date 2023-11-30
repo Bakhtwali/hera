@@ -60,7 +60,27 @@ class CreateUserProvider extends ChangeNotifier {
           snackPosition: SnackPosition.BOTTOM,
           maxWidth: 400);
       return false;
+    } else if (createUserModel.email == null ||
+        createUserModel.email!.isEmail) {
+      Get.snackbar('Alert', 'Plesae enter your email',
+          backgroundColor: Colors.teal,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 400);
+      return false;
+    } else if (createUserModel.password == null ||
+        createUserModel.password!.isEmail) {
+      Get.snackbar('Alert', 'Plesae enter your password',
+          backgroundColor: Colors.teal,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 400);
+      return false;
+    } else if (createUserModel.confirmPassword == null ||
+        createUserModel.confirmPassword!.isEmail) {
+      Get.snackbar('Alert', 'Plesae enter your confirm Password',
+          backgroundColor: Colors.teal,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 400);
+      return false;
     }
-    // else if(){}
   }
 }
