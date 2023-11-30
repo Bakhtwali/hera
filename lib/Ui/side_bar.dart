@@ -2,7 +2,7 @@ import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/institution_profile.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/app_submission.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/create_user_screen/create_user_screen.dart';
-import 'package:englishtalkedesktop/Ui/question_configuration/create_user_screen/view_all_users.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view_all_users.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen1.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen2.dart';
