@@ -12,13 +12,32 @@ class CreateUserProvider extends ChangeNotifier {
   createUserFunction() async {
     createUserModel.createat = DateTime.now();
 
-    bool check = checkValidation();
+    // bool check = checkValidation();
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: createUserModel.email!,
               password: createUserModel.password!)
-          .then((value) {
+          .then((value) async {
+        try {
+          await FirebaseFirestore.instance
+              .collection('appuser')
+              .add(
+                createUserModel.toJson(),
+              )
+              .then((value) {
+            log('data added to appuser collection');
+            FirebaseFirestore.instance
+                .collection('appuser')
+                .doc(value.id)
+                .update({'id': value.id});
+          });
+        } catch (e) {
+          Get.snackbar('Error', 'error in creation $e',
+              backgroundColor: Colors.red,
+              snackPosition: SnackPosition.BOTTOM,
+              maxWidth: 400);
+        }
         log('app user added to auth section');
       });
     } catch (e) {
@@ -28,25 +47,6 @@ class CreateUserProvider extends ChangeNotifier {
           maxWidth: 400);
     }
 
-    try {
-      await FirebaseFirestore.instance
-          .collection('appuser')
-          .add(
-            createUserModel.toJson(),
-          )
-          .then((value) {
-        log('data added to appuser collection');
-        FirebaseFirestore.instance
-            .collection('appuser')
-            .doc(value.id)
-            .update({'id': value.id});
-      });
-    } catch (e) {
-      Get.snackbar('Error', 'error in creation $e',
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.BOTTOM,
-          maxWidth: 400);
-    }
     // Get.snackbar('Alert', 'this is snakebar',
     //     backgroundColor: Colors.teal,
     //     snackPosition: SnackPosition.BOTTOM,
