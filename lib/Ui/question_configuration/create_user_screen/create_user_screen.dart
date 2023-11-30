@@ -46,6 +46,7 @@ class _Screen3State extends State<Screen3> {
                           ),
                           SizedBox(height: 40),
                           CustomTextField(
+                            controller: model.nameController,
                             onChanged: (name) {
                               model.createUserModel.name = name;
                             },
@@ -59,6 +60,7 @@ class _Screen3State extends State<Screen3> {
                           ),
                           SizedBox(height: 10),
                           CustomTextField(
+                            controller: model.emailController,
                             onChanged: (email) {
                               model.createUserModel.email = email;
                             },
@@ -70,6 +72,7 @@ class _Screen3State extends State<Screen3> {
                           ),
                           SizedBox(height: 10),
                           CustomTextField(
+                            controller: model.passwordController,
                             onChanged: (password) {
                               model.createUserModel.password = password;
                             },
@@ -81,6 +84,7 @@ class _Screen3State extends State<Screen3> {
                           ),
                           SizedBox(height: 10),
                           CustomTextField(
+                            controller: model.confirmPasswordController,
                             onChanged: (confirmpassword) {
                               model.createUserModel.confirmPassword =
                                   confirmpassword;
@@ -95,12 +99,17 @@ class _Screen3State extends State<Screen3> {
                           Row(
                             children: [
                               const Spacer(),
-                              ElevatedButton(
-                                onPressed: () {
-                                  model.createUserFunction();
-                                },
-                                child: Text('Save Record'),
-                              ),
+                              model.islaoding
+                                  ? Center(
+                                      child: CircularProgressIndicator(
+                                      color: Colors.teal,
+                                    ))
+                                  : ElevatedButton(
+                                      onPressed: () {
+                                        model.createUserFunction();
+                                      },
+                                      child: Text('Save Record'),
+                                    ),
                               SizedBox(width: 8.0),
                               ElevatedButton(
                                 onPressed: () {},

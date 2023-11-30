@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
       obscureText,
       keyBoardType,
       hintText,
+      controller,
       labelText;
   IconButton? suffixIcon;
   CustomTextField({
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
     this.keyBoardType,
     this.obscureText = false,
     this.initialVal,
+    this.controller,
     this.hintText,
     this.labelText,
   });
@@ -35,6 +37,7 @@ class CustomTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),*/
       child: TextFormField(
+        controller: controller,
         style: TextStyle(color: Colors.black, fontSize: 14),
         initialValue: initialVal,
         validator: validator,

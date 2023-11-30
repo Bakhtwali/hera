@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/core/model/create_user_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
@@ -35,18 +38,38 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(1920, 1080),
       builder: (context, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          getPages: pages,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-                seedColor: const Color.fromARGB(255, 244, 244, 244)),
-            useMaterial3: true,
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider<AllUserProvider>(
+                create: (context) => AllUserProvider()),
+          ],
+          child: GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            getPages: pages,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color.fromARGB(255, 244, 244, 244)),
+              useMaterial3: true,
+            ),
+            home: DashboardScreen(),
           ),
-          home: DashboardScreen(),
         );
       },
     );
+  }
+}
+
+class AllUserProvider extends ChangeNotifier {
+  AllUserProvider() {
+    GetAllUser();
+    print('this is contructor for all user');
+  }
+  CreateUserModel createUserModel = CreateUserModel();
+  List<CreateUserModel> allUser = [];
+  GetAllUser() async {
+    await FirebaseFirestore.instance.collection('appuser').get().then((value) {
+      print('this is all user data length ${value.docs.length}');
+    });
   }
 }

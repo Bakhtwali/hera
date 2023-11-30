@@ -1,10 +1,11 @@
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/institution_profile.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/app_submission.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/create_user_screen/create_user_screen.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view_all_users.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen1.dart';
 import 'package:englishtalkedesktop/Ui/question_configuration/screen2.dart';
-import 'package:englishtalkedesktop/Ui/question_configuration/create_user_screen/create_user_screen.dart';
 import 'package:englishtalkedesktop/core/Constants/constants.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/SizedBox.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_text.dart';
@@ -259,7 +260,11 @@ List<GetPage> pages = [
   GetPage(
     name: "/appsubmission",
     page: () => appSubmssion(),
-  )
+  ),
+  GetPage(
+    name: "/viewallusers",
+    page: () => ViewAllUsers(),
+  ),
 ];
 List<SideBarModel> sidebarPage = [
   SideBarModel(text: "Dashboard", route: "/Home1", Image: Home),
@@ -267,7 +272,7 @@ List<SideBarModel> sidebarPage = [
   SideBarModel(text: "Institutions Profile", route: "/Home3", Image: tick_icon),
   SideBarModel(text: "Create User", route: "/Home4Screen", Image: message),
   SideBarModel(
-      text: "View All Users", route: "/view_all_users_route", Image: tick_icon),
+      text: "View All Users", route: "/viewallusers", Image: tick_icon),
   SideBarModel(
       text: "App Submission Configuration",
       route: "/appsubmission",
