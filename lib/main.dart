@@ -1,7 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
+import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view_all_user_provider.dart';
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
-import 'package:englishtalkedesktop/core/model/create_user_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +31,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp();
 
-  // This widget is the root of your ation.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -40,8 +38,8 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MultiProvider(
           providers: [
-            ChangeNotifierProvider<AllUserProvider>(
-                create: (context) => AllUserProvider()),
+            ChangeNotifierProvider<UserProvider>(
+                create: (context) => UserProvider()),
           ],
           child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
@@ -57,19 +55,5 @@ class MyApp extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-class AllUserProvider extends ChangeNotifier {
-  AllUserProvider() {
-    GetAllUser();
-    print('this is contructor for all user');
-  }
-  CreateUserModel createUserModel = CreateUserModel();
-  List<CreateUserModel> allUser = [];
-  GetAllUser() async {
-    await FirebaseFirestore.instance.collection('appuser').get().then((value) {
-      print('this is all user data length ${value.docs.length}');
-    });
   }
 }
