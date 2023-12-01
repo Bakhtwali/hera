@@ -32,6 +32,6 @@ class CreateUserModel {
     email = json['email'];
     password = json['password'];
     confirmPassword = json['confirmPassword'];
-    createat = json['createat'];
+    createat = json['createat'].toDate();
   }
 }
