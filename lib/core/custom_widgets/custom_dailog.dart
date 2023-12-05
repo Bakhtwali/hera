@@ -12,8 +12,16 @@ class Customdailog extends StatelessWidget {
   final text;
   final subtext;
   final buttonText;
+  final ontap2;
+  final btn2text;
   Customdailog(
-      {this.picture, this.text, this.subtext, this.buttonText, this.ontap});
+      {this.picture,
+      this.text,
+      this.subtext,
+      this.buttonText,
+      this.ontap,
+      this.ontap2,
+      this.btn2text});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +32,8 @@ class Customdailog extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            picture,
-            height: 150.h,
-            width: 150.w,
-          ), // Replace with your image asset path
+          Icon(Icons.delete, size: 100.sp, color: Colors.red),
+          // Replace with your image asset path
           SizedBox(height: 16.h),
 
           CustomText(
@@ -48,9 +53,19 @@ class Customdailog extends StatelessWidget {
             ontap: ontap ?? () {},
             text: buttonText,
             textColor: WhiteColor,
-            borderColor: kAmberColor,
-            backgroungColor: kAmberColor,
-          )
+            borderColor: Colors.teal,
+            backgroungColor: Colors.teal,
+          ),
+          CustomSizedBox(
+            height: 12.h,
+          ),
+          CustomButton(
+            ontap: ontap2 ?? () {},
+            text: btn2text,
+            textColor: Colors.teal,
+            borderColor: Colors.white,
+            backgroungColor: Colors.white,
+          ),
         ],
       ),
     );
