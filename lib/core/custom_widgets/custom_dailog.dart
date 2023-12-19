@@ -14,7 +14,7 @@ class Customdailog extends StatelessWidget {
   final buttonText;
   final ontap2;
   final btn2text;
-  Customdailog(
+   Customdailog(
       {this.picture,
       this.text,
       this.subtext,
@@ -32,7 +32,8 @@ class Customdailog extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.delete, size: 100.sp, color: Colors.red),
+          picture,
+          // Icon(Icons.delete, size: 100.sp, color: Colors.red),
           // Replace with your image asset path
           SizedBox(height: 16.h),
 

@@ -28,6 +28,8 @@ class CreateUserProvider extends ChangeNotifier {
                 password: createUserModel.password!)
             .then((value) async {
           try {
+            createUserModel.isUserBlocked = false;
+
             await FirebaseFirestore.instance
                 .collection('appuser')
                 .add(
