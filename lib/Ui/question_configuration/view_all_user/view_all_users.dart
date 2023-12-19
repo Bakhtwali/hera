@@ -3,6 +3,7 @@ import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view
 import 'package:englishtalkedesktop/Ui/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_dailog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
@@ -33,29 +34,51 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                     ),
                   ),
                   Card(
+                    color: Colors.teal,
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Container(
-                        height: 50,
+                        height: 50.h,
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('S.No'),
-                              Text('User Name'),
-                              Text('Inspection Assigned'),
-                              Text('Inspection Completed'),
-                              Text('Inspection Pending'),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(Icons.edit),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Icons.delete))
-                                ],
-                              )
+                              Container(
+                                  child: Text(
+                                'S.No',
+                                style: TextStyle(fontSize: 16.sp),
+                              )),
+                              Container(
+                                  child: Text(
+                                'User Name',
+                                style: TextStyle(fontSize: 16.sp),
+                              )),
+                              Text(
+                                'Inspection Assigned',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                              Text(
+                                'Inspection Completed',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                              Text(
+                                'Inspection Pending',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                              Text(
+                                'Action',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                              // Row(
+                              //   children: [
+                              //     IconButton(
+                              //       onPressed: () {},
+                              //       icon: Icon(Icons.edit),
+                              //     ),
+                              //     IconButton(
+                              //         onPressed: () {},
+                              //         icon: Icon(Icons.delete))
+                              //   ],
+                              // )
                             ]),
                       ),
                     ),
@@ -78,68 +101,156 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                                   child: Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Container(
-                                      height: 50,
+                                      height: 50.h,
                                       child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${index + 1}'),
-                                            Text(
-                                                '${model.allUser[index].name}'),
-                                            Text('Inspection Assigned'),
-                                            Text('Inspection Completed'),
-                                            Text('Inspection Pending'),
-                                            Row(
-                                              children: [
-                                                IconButton(
-                                                  onPressed: () {},
-                                                  icon: Icon(Icons.edit),
-                                                ),
-                                                IconButton(
-                                                    onPressed: () {
-                                                      showDialog(
-                                                        context: context,
-                                                        builder: (BuildContext
-                                                            context) {
-                                                          return Customdailog(
-                                                            ontap: () {
-                                                              model.loaderfunction(
-                                                                  model
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 75.w),
+                                              child: Container(
+                                                  width: 30.w,
+                                                  child: Center(
+                                                      child: Text(
+                                                          '${index + 1}'))),
+                                            ),
+                                            Container(
+                                              width: 100.w,
+                                              child: Center(
+                                                child: Text(
+                                                    '${model.allUser[index].name}'),
+                                              ),
+                                            ),
+                                            Container(
+                                                width: 150.w,
+                                                child: Center(
+                                                    child: Text(
+                                                        '048489939393934784884838383'))),
+                                            Container(
+                                                width: 150.w,
+                                                child: Center(
+                                                    child: Text('04939393'))),
+                                            Container(
+                                                width: 150.w,
+                                                child:
+                                                    Center(child: Text('0'))),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(right: 40.w),
+                                              child: Container(
+                                                child: Row(
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return Customdailog(
+                                                                picture: Icon(
+                                                                    Icons.block,
+                                                                    size:
+                                                                        100.sp,
+                                                                    color: Colors
+                                                                        .red),
+                                                                ontap: () {
+                                                                  model.loaderfunction(model
                                                                       .allUser[
                                                                           index]
                                                                       .id);
-                                                              model.deleteUser(
-                                                                  model
-                                                                      .allUser[
-                                                                          index]
-                                                                      .id!,
-                                                                  model
-                                                                      .allUser[
-                                                                          index]
-                                                                      .email!,
-                                                                  model
-                                                                      .allUser[
-                                                                          index]
-                                                                      .password!);
-                                                              Get.back();
+
+                                                                  Get.back();
+                                                                },
+                                                                ontap2: () {
+                                                                  Get.back();
+                                                                },
+                                                                text:
+                                                                    '${model.allUser[index].name}',
+                                                                subtext:
+                                                                    ' Do you want to block this user?',
+                                                                buttonText:
+                                                                    'Block',
+                                                                btn2text:
+                                                                    'Cancel',
+                                                              );
                                                             },
-                                                            ontap2: () {
-                                                              Get.back();
-                                                            },
-                                                            text:
-                                                                '${model.allUser[index].name}',
-                                                            subtext:
-                                                                ' Do you want to delete this user permanently?',
-                                                            buttonText:
-                                                                'Delete',
-                                                            btn2text: 'Cancel',
                                                           );
                                                         },
-                                                      );
-                                                    },
-                                                    icon: Icon(Icons.delete))
-                                              ],
-                                            )
+                                                        icon: model
+                                                                .allUser[index]
+                                                                .isUserBlocked!
+                                                            ? Icon(
+                                                                Icons.block,
+                                                                color:
+                                                                    Colors.teal,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .remove_circle_outline,
+                                                                color:
+                                                                    Colors.red,
+                                                              )
+
+                                                        //remove_circle_outline
+                                                        ),
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return Customdailog(
+                                                                picture: Icon(
+                                                                    Icons
+                                                                        .delete,
+                                                                    size:
+                                                                        100.sp,
+                                                                    color: Colors
+                                                                        .red),
+                                                                ontap: () {
+                                                                  model.loaderfunction(model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .id);
+                                                                  model.deleteUser(
+                                                                      model
+                                                                          .allUser[
+                                                                              index]
+                                                                          .id!,
+                                                                      model
+                                                                          .allUser[
+                                                                              index]
+                                                                          .email!,
+                                                                      model
+                                                                          .allUser[
+                                                                              index]
+                                                                          .password!);
+                                                                  Get.back();
+                                                                },
+                                                                ontap2: () {
+                                                                  Get.back();
+                                                                },
+                                                                text:
+                                                                    '${model.allUser[index].name}',
+                                                                subtext:
+                                                                    ' Do you want to delete this user permanently?',
+                                                                buttonText:
+                                                                    'Delete',
+                                                                btn2text:
+                                                                    'Cancel',
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                        icon:
+                                                            Icon(Icons.delete))
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
                                           ]),
                                     ),
                                   ),

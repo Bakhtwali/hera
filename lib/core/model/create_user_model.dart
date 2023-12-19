@@ -5,6 +5,7 @@ class CreateUserModel {
   String? password;
   String? confirmPassword;
   DateTime? createat;
+  bool? isUserBlocked;
 
   CreateUserModel({
     this.id,
@@ -13,6 +14,7 @@ class CreateUserModel {
     this.password,
     this.confirmPassword,
     this.createat,
+    this.isUserBlocked,
   });
 
   Map<String, dynamic> toJson() {
@@ -23,6 +25,7 @@ class CreateUserModel {
     data['password'] = password;
     data['confirmPassword'] = confirmPassword;
     data['createat'] = createat;
+    data['isUserBlocked'] = isUserBlocked;
     return data;
   }
 
@@ -32,6 +35,7 @@ class CreateUserModel {
     email = json['email'];
     password = json['password'];
     confirmPassword = json['confirmPassword'];
+    isUserBlocked = json['isUserBlocked'];
     createat = json['createat'].toDate();
   }
 }
