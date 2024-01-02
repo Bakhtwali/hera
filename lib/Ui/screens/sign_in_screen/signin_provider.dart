@@ -5,7 +5,7 @@ import 'package:englishtalkedesktop/models/base_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/enums/view_state.dart';
+import '../../../models/enums/view_state.dart';
 
 class SignInProvider extends BaseViewModal {
   // final authInstant = FirebaseAuth.instance;

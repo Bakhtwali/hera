@@ -2,7 +2,7 @@
 
 import 'dart:io';
 
-import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -165,10 +165,13 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                         ),
                                         SizedBox(height: 10),
                                         cstListBox(
-                                          values: [
+                                          onchanged: (String? newValue) {
+                                            // model.newQuestionModel.typeOfQuestion = newValue;
+                                          },
+                                          values: const [
                                             'Peshawar',
                                             'Mardan',
-                                            'Charsadda'
+                                            'Charsadda',
                                           ],
                                           hint: 'Select District',
                                         ),

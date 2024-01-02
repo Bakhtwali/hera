@@ -63,11 +63,14 @@ class CustomTextField extends StatelessWidget {
 class cstListBox extends StatelessWidget {
   final List<String> values; // Pass the list of values as a parameter
   final String hint;
+  final onchanged;
 
   const cstListBox({
     Key? key,
     required this.values,
-    required this.hint, // Accept the list of values
+    required this.hint,
+    this.onchanged
+     // Accept the list of values
   }) : super(key: key);
 
   @override
@@ -81,6 +84,7 @@ class cstListBox extends StatelessWidget {
       width: double.infinity,
       height: 60.0,
       child: DropdownButtonFormField<String>(
+        
         decoration: InputDecoration(
           border: InputBorder.none, // Set the border to none
           isDense: true,
@@ -93,9 +97,7 @@ class cstListBox extends StatelessWidget {
             child: Text(value),
           );
         }).toList(),
-        onChanged: (String? newValue) {
-          // Handle dropdown value change
-        },
+        onChanged: onchanged,
         hint: Text(hint),
       ),
     );

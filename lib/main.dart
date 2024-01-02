@@ -1,6 +1,7 @@
-import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
-import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view_all_user_provider.dart';
-import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.dart';
+import 'package:englishtalkedesktop/Ui/screens/question_configuration/shoq_all_question/show_all_question_provider.dart';
+import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_user_provider.dart';
+import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ void main() async {
   setPathUrlStrategy();
   if (kIsWeb) {
     await Firebase.initializeApp(
+        name: 'name-here',
         options: const FirebaseOptions(
             apiKey: "AIzaSyA1zxnwyrhXe1MB5fGWX5bBdsBA-L3hMXQ",
             authDomain: "herainspection-4e99a.firebaseapp.com",
@@ -39,7 +41,11 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider<UserProvider>(
-                create: (context) => UserProvider()),
+              create: (context) => UserProvider(),
+            ),
+            ChangeNotifierProvider<ShowAllquestionprovider>(
+              create: (context) => ShowAllquestionprovider(),
+            ),
           ],
           child: GetMaterialApp(
             debugShowCheckedModeBanner: false,

@@ -1,13 +1,15 @@
-import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:flutter/material.dart';
 
-class Screen1 extends StatefulWidget {
+class appSubmssion extends StatefulWidget {
   @override
-  State<Screen1> createState() => _Screen1State();
+  State<appSubmssion> createState() => _Screen1State();
 }
 
-class _Screen1State extends State<Screen1> {
+class _Screen1State extends State<appSubmssion> {
+  DateTime? _selectedDate;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,28 +18,18 @@ class _Screen1State extends State<Screen1> {
           SideBar(),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(40.0),
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          'Question Submmission Form ',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                            'Please configure the questions according to the requierment'),
-                      ],
-                    ),
+                  const Text(
+                    'Institution Submission to App for Inspection',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
-                  Align(
+                  const Text(
+                    'Please select appropriate Institution for Submission',
+                  ),
+                  const SizedBox(height: 40),
+                  const Align(
                     alignment: Alignment.centerLeft,
                     child: cstListBox(
                       values: [
@@ -45,60 +37,69 @@ class _Screen1State extends State<Screen1> {
                         'Review Inspection Question',
                         'Renewal Inspection Question'
                       ],
-                      hint: 'Select Question Type',
+                      hint: 'Select Inspection Type',
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: cstListBox(
                       values: [
-                        'Management',
-                        'Registration',
-                        'Board of Governors',
-                        'Disciplines(s)',
-                        'Teaching Faculty',
-                        'Library - Racks Center Table & Chair',
-                        'Infrastructure / General Facilities',
-                        'Gross Area',
-                        'Website',
-                        'Hostel: - Cubicle: Dormitories: Dining & Gross Space',
-                        'Scholarships and Free Ships',
-                        'Finance',
+                        'IQRA National University',
+                        'Rehman Medical Institute',
+                        'Nothwest School of Medicine'
                       ],
-                      hint: 'Select Main Group',
+                      hint: 'Select University/College/Institute',
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextField(
-                    labelText: 'Question No',
-                  ),
-                  SizedBox(height: 10),
-                  CustomTextField(
-                    labelText: 'Question Text',
-                  ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20.0),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: cstListBox(
                       values: [
                         'Medical College',
                         'Engineering College',
-                        'Degree Awarding Institute',
-                        'University'
-                            'Allied Health Sciences',
-                        'Homepatheic College',
-                        'Professional College',
-                        'General College',
-                        'Vocational College',
+                        'Allied Health Sciences',
+                        'Others'
                       ],
-                      hint: 'Select Question Group',
+                      hint: 'Select College Type',
                     ),
                   ),
+                  SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: cstListBox(
+                      values: [
+                        'ali@gmail.com',
+                        'Inspector1@gmail.com',
+                        'kmu@gmail.com',
+                        'Others'
+                      ],
+                      hint: 'Select Assessor/Inpsector Account',
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  cstDatePicker(
+                    hintText: 'Select Date',
+                    onDateSelected: (DateTime? selectedDate) {
+                      setState(() {
+                        _selectedDate = selectedDate;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  if (_selectedDate != null)
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Selected Date: ${_selectedDate!.toString()}',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
                   SizedBox(height: 20),
                   Row(
                     children: [
@@ -127,7 +128,7 @@ class _Screen1State extends State<Screen1> {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

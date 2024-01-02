@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:englishtalkedesktop/Ui/dashboard.dart/dashboard_screen.dart';
-import 'package:englishtalkedesktop/Ui/sign_in_screen/signin_provider.dart';
+import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.dart';
+import 'package:englishtalkedesktop/Ui/screens/sign_in_screen/signin_provider.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
