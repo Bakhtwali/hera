@@ -46,13 +46,30 @@ class UserProvider extends ChangeNotifier {
     //this is the code to delet the user from firestore by id
     await FirebaseFirestore.instance.collection('appuser').doc(id).delete();
     print('user delet from firestore');
-    loaderid='';
+    loaderid = '';
     isloadershow = false;
     // await FirebaseFirestore.instance.collection('appuser').doc(id).delete();
     notifyListeners();
   }
 
-  loaderfunction(id) {
+  blockFunction(id, status) async {
+    print('this is block function');
+    status = !status;
+    loaderid = id;
+    notifyListeners();
+    await FirebaseFirestore.instance
+        .collection('appuser')
+        .doc(id)
+        .update({'isUserBlocked': status}).then((value) {
+      print('user blocked');
+    });
+    loaderid = '';
+    notifyListeners();
+  }
+
+  loaderfunction(
+    id,
+  ) async {
     loaderid = id;
     notifyListeners();
   }

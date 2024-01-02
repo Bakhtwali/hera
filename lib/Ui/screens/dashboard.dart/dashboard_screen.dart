@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
-import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Row(
         children: [
           SideBar(),
-          Center(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -33,7 +33,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Container(
                   height: 100.h,
                   width: MediaQuery.of(context).size.width / 1.28,
-                  color: Color.fromARGB(255, 255, 255, 255),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -46,14 +45,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               text: TextSpan(
                                 text: 'Welcome To HERA ',
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
                                     text: '(MIS User)',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 12.sp,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -64,7 +63,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               DateFormat('EEE MMM d yyyy')
                                   .format(DateTime.now()),
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.normal),
                             ),
@@ -73,18 +72,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Row(
                           children: [
                             CircleAvatar(
-                              radius: 20.0,
+                              radius: 20.r,
                               backgroundImage: AssetImage('assets/profile.png'),
                             ),
                             SizedBox(width: 10.0),
                             Text(
                               'Siddique Dawar',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(width: 10),
+                            SizedBox(width: 10.w),
                             CustomButton(
                               ontap: () {},
                               backgroungColor: Colors.teal,
@@ -92,13 +91,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               textColor: Colors.white,
                               borderColor: Colors.teal,
                             ),
-                            SizedBox(width: 30),
+                            SizedBox(width: 30.w),
                           ],
                         ),
                       ],
                     ),
                   ),
                 ),
+
                 SizedBox(height: 30.h),
 
                 // main column
@@ -108,22 +108,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     children: [
                       Dashboard_containers(
                           title: '100', subtitle: 'Inspection(s) Forwarded'),
-                      SizedBox(width: 10.0),
+                      SizedBox(width: 10.w),
                       Dashboard_containers(
                           title: '50', subtitle: 'Inspection(s) Completed'),
                       SizedBox(
-                        width: 10.0,
+                        width: 10.w,
                       ),
                       Dashboard_containers(
                           title: '50', subtitle: 'Inspection(s) Pending'),
                     ],
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 20.w),
                 Card(
                   child: Container(
                     child: Row(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
@@ -144,25 +143,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               sections: [
                                 PieChartSectionData(
                                   color: Colors.lightGreen.withOpacity(0.5),
-                                  value: 50,
+                                  value: 50.sp,
                                   title: 'Total Forwarded',
                                   radius: 120,
                                 ),
                                 PieChartSectionData(
                                   color: Colors.redAccent.withOpacity(0.5),
-                                  value: 50,
+                                  value: 50.sp,
                                   title: 'Pending',
                                   radius: 120,
                                 ),
                                 PieChartSectionData(
                                   color: Colors.blueAccent.withOpacity(0.5),
-                                  value: 50,
+                                  value: 50.sp,
                                   title: 'Completed',
                                   radius: 120,
                                 ),
                                 // Add a section for Total if needed
                               ],
-                              centerSpaceRadius: 70,
+                              centerSpaceRadius: 70.r,
                               sectionsSpace: 1,
                             ),
                           ),
@@ -218,7 +217,7 @@ class Dashboard_containers extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 20.0,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -226,7 +225,7 @@ class Dashboard_containers extends StatelessWidget {
           Text(
             subtitle,
             style: TextStyle(
-              fontSize: 15.0,
+              fontSize: 15.sp,
               color: Colors.white,
             ),
           ),

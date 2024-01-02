@@ -1,14 +1,13 @@
-import 'package:englishtalkedesktop/Ui/question_configuration/create_user_screen/create_user_provider.dart';
-import 'package:englishtalkedesktop/Ui/question_configuration/view_all_user/view_all_user_provider.dart';
-import 'package:englishtalkedesktop/Ui/side_bar.dart';
+import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_user_provider.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
 class ViewAllUsers extends StatefulWidget {
+  const ViewAllUsers({Key? key}) : super(key: key);
+
   @override
   State<ViewAllUsers> createState() => _ViewAllUsersState();
 }
@@ -17,80 +16,73 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
   @override
   Widget build(BuildContext context) {
     return Consumer<UserProvider>(
-      builder: (context, model, child) => Scaffold(
-        body: Row(
-          children: [
-            SideBar(),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(height: 40),
-                  Text(
-                    'View All User Screen',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w100,
+      builder: (context, model, child) => Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Card(
+                  color: Colors.teal,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 50.h,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                                child: Text(
+                              'S.No',
+                              style: TextStyle(fontSize: 16.sp),
+                            )),
+                            Container(
+                                child: Text(
+                              'User Name',
+                              style: TextStyle(fontSize: 16.sp),
+                            )),
+                            Text(
+                              'Inspection Assigned',
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                            Text(
+                              'Inspection Completed',
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                            Text(
+                              'Inspection Pending',
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                            Text(
+                              'Action',
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                            // Row(
+                            //   children: [
+                            //     IconButton(
+                            //       onPressed: () {},
+                            //       icon: Icon(Icons.edit),
+                            //     ),
+                            //     IconButton(
+                            //         onPressed: () {},
+                            //         icon: Icon(Icons.delete))
+                            //   ],
+                            // )
+                          ]),
                     ),
                   ),
-                  Card(
-                    color: Colors.teal,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 50.h,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                  child: Text(
-                                'S.No',
-                                style: TextStyle(fontSize: 16.sp),
-                              )),
-                              Container(
-                                  child: Text(
-                                'User Name',
-                                style: TextStyle(fontSize: 16.sp),
-                              )),
-                              Text(
-                                'Inspection Assigned',
-                                style: TextStyle(fontSize: 16.sp),
-                              ),
-                              Text(
-                                'Inspection Completed',
-                                style: TextStyle(fontSize: 16.sp),
-                              ),
-                              Text(
-                                'Inspection Pending',
-                                style: TextStyle(fontSize: 16.sp),
-                              ),
-                              Text(
-                                'Action',
-                                style: TextStyle(fontSize: 16.sp),
-                              ),
-                              // Row(
-                              //   children: [
-                              //     IconButton(
-                              //       onPressed: () {},
-                              //       icon: Icon(Icons.edit),
-                              //     ),
-                              //     IconButton(
-                              //         onPressed: () {},
-                              //         icon: Icon(Icons.delete))
-                              //   ],
-                              // )
-                            ]),
-                      ),
-                    ),
-                  ),
-                  Expanded(
+                ),
+                SizedBox(height: 20.h),
+                SizedBox(
+                  height: 780.h,
+                  child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: model.allUser
                           .length, // Replace numberOfRows with the actual number of rows
                       itemBuilder: (BuildContext context, int index) {
                         return model.loaderid == model.allUser[index].id
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : SizedBox(
@@ -99,8 +91,8 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                                     .width, // Adjust width as needed
                                 child: Card(
                                   child: Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Container(
+                                    padding: EdgeInsets.all(8.r),
+                                    child: SizedBox(
                                       height: 50.h,
                                       child: Row(
                                           mainAxisAlignment:
@@ -109,57 +101,85 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                                             Padding(
                                               padding:
                                                   EdgeInsets.only(left: 75.w),
-                                              child: Container(
+                                              child: SizedBox(
                                                   width: 30.w,
                                                   child: Center(
                                                       child: Text(
                                                           '${index + 1}'))),
                                             ),
-                                            Container(
+                                            SizedBox(
                                               width: 100.w,
                                               child: Center(
                                                 child: Text(
                                                     '${model.allUser[index].name}'),
                                               ),
                                             ),
-                                            Container(
-                                                width: 150.w,
-                                                child: Center(
-                                                    child: Text(
-                                                        '048489939393934784884838383'))),
-                                            Container(
-                                                width: 150.w,
-                                                child: Center(
-                                                    child: Text('04939393'))),
-                                            Container(
+                                            SizedBox(
                                                 width: 150.w,
                                                 child:
-                                                    Center(child: Text('0'))),
+                                                    Center(child: Text('5'))),
+                                            SizedBox(
+                                                width: 150.w,
+                                                child:
+                                                    Center(child: Text('2'))),
+                                            SizedBox(
+                                                width: 150.w,
+                                                child:
+                                                    Center(child: Text('9'))),
                                             Padding(
                                               padding:
                                                   EdgeInsets.only(right: 40.w),
-                                              child: Container(
+                                              child: SizedBox(
                                                 child: Row(
                                                   children: [
                                                     IconButton(
                                                         onPressed: () {
+                                                          String status = model
+                                                                  .allUser[
+                                                                      index]
+                                                                  .isUserBlocked!
+                                                              ? 'unblock'
+                                                              : 'block';
                                                           showDialog(
                                                             context: context,
                                                             builder:
                                                                 (BuildContext
                                                                     context) {
                                                               return Customdailog(
-                                                                picture: Icon(
-                                                                    Icons.block,
-                                                                    size:
-                                                                        100.sp,
-                                                                    color: Colors
-                                                                        .red),
+                                                                picture: model
+                                                                        .allUser[
+                                                                            index]
+                                                                        .isUserBlocked!
+                                                                    ? const Icon(
+                                                                        Icons
+                                                                            .block,
+                                                                        color: Colors
+                                                                            .teal,
+                                                                      )
+                                                                    : const Icon(
+                                                                        Icons
+                                                                            .remove_circle_outline,
+                                                                        color: Colors
+                                                                            .red,
+                                                                      ),
                                                                 ontap: () {
-                                                                  model.loaderfunction(model
-                                                                      .allUser[
-                                                                          index]
-                                                                      .id);
+                                                                  model.blockFunction(
+                                                                      model
+                                                                          .allUser[
+                                                                              index]
+                                                                          .id,
+                                                                      model
+                                                                          .allUser[
+                                                                              index]
+                                                                          .isUserBlocked!);
+
+                                                                  model
+                                                                      .loaderfunction(
+                                                                    model
+                                                                        .allUser[
+                                                                            index]
+                                                                        .id,
+                                                                  );
 
                                                                   Get.back();
                                                                 },
@@ -169,24 +189,26 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                                                                 text:
                                                                     '${model.allUser[index].name}',
                                                                 subtext:
-                                                                    ' Do you want to block this user?',
+                                                                    ' Do you want to $status this user?',
                                                                 buttonText:
-                                                                    'Block',
+                                                                    '$status',
                                                                 btn2text:
                                                                     'Cancel',
                                                               );
                                                             },
                                                           );
+                                                        
+                                                        
                                                         },
                                                         icon: model
                                                                 .allUser[index]
                                                                 .isUserBlocked!
-                                                            ? Icon(
+                                                            ? const Icon(
                                                                 Icons.block,
                                                                 color:
                                                                     Colors.teal,
                                                               )
-                                                            : Icon(
+                                                            : const Icon(
                                                                 Icons
                                                                     .remove_circle_outline,
                                                                 color:
@@ -244,9 +266,11 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                                                               );
                                                             },
                                                           );
+                                                        
+                                                        
                                                         },
-                                                        icon:
-                                                            Icon(Icons.delete))
+                                                        icon: const Icon(
+                                                            Icons.delete))
                                                   ],
                                                 ),
                                               ),
@@ -259,33 +283,11 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                       },
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          // model.createUserFunction();
-                        },
-                        child: Text('Login'),
-                      ),
-                      SizedBox(width: 10.0),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Dashboard'),
-                      ),
-                      SizedBox(width: 10.0),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Log Out'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
