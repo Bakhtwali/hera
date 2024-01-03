@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:englishtalkedesktop/core/model/new_question_model.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ShowAllquestionprovider extends ChangeNotifier {
@@ -11,6 +10,8 @@ class ShowAllquestionprovider extends ChangeNotifier {
     log('this is is test print');
     getAllQuestion();
   }
+  int activequestion = 1;
+  bool loader = false;
   List<NewQuestionModel> newQuestionList = [];
   List<NewQuestionModel> reviewQuestionList = [];
   List<NewQuestionModel> renewlQuestionList = [];
@@ -29,21 +30,34 @@ class ShowAllquestionprovider extends ChangeNotifier {
         print(element.data());
         NewQuestionModel newQuestionModel =
             NewQuestionModel.fromJson(element.data(), element.id);
-        newQuestionList.add(newQuestionModel);
+        if (newQuestionModel.typeOfQuestion == "Fresh Inspection Question") {
+          newQuestionList.add(newQuestionModel);
+        } else if (newQuestionModel.typeOfQuestion ==
+            "Review Inspection Question") {
+          reviewQuestionList.add(newQuestionModel);
+        } else if (newQuestionModel.typeOfQuestion ==
+            "Renewal Inspection Question") {
+          renewlQuestionList.add(newQuestionModel);
+        }
+
         print('newQuestionList ${newQuestionList.length}');
         notifyListeners();
       });
     });
+  }
 
-    // .get().then((value) {
-    //   value.docs.forEach((element) {
-    //     print(element.data());
-    //     NewQuestionModel newQuestionModel =
-    //         NewQuestionModel.fromJson(element.data(), element.id);
-    //     newQuestionList.add(newQuestionModel);
-    //     print('newQuestionList ${newQuestionList.length}');
-    //     notifyListeners();
-    //   });
-    // });
+  changeActive(val) {
+    activequestion = val;
+    notifyListeners();
+  }
+
+  DeleteQuestion(String id) {
+    loader = true;
+    notifyListeners();
+    FirebaseFirestore.instance.collection('Questions').doc(id).delete();
+    loader = false;
+    notifyListeners();
+    print('this is delete question function $id');
+    // FirebaseFirestore.instance.collection('Questions').doc(id).delete();
   }
 }

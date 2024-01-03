@@ -75,213 +75,186 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                 SizedBox(height: 20.h),
                 SizedBox(
                   height: 780.h,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: model.allUser
-                          .length, // Replace numberOfRows with the actual number of rows
-                      itemBuilder: (BuildContext context, int index) {
-                        return model.loaderid == model.allUser[index].id
-                            ? const Center(
-                                child: CircularProgressIndicator(),
-                              )
-                            : SizedBox(
-                                width: MediaQuery.of(context)
-                                    .size
-                                    .width, // Adjust width as needed
-                                child: Card(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.r),
-                                    child: SizedBox(
-                                      height: 50.h,
-                                      child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 75.w),
-                                              child: SizedBox(
-                                                  width: 30.w,
-                                                  child: Center(
-                                                      child: Text(
-                                                          '${index + 1}'))),
-                                            ),
-                                            SizedBox(
-                                              width: 100.w,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: model.allUser
+                        .length, // Replace numberOfRows with the actual number of rows
+                    itemBuilder: (BuildContext context, int index) {
+                      return model.loaderid == model.allUser[index].id
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : Card(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.r),
+                                child: SizedBox(
+                                  height: 50.h,
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 75.w),
+                                          child: SizedBox(
+                                              width: 30.w,
                                               child: Center(
-                                                child: Text(
-                                                    '${model.allUser[index].name}'),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                                width: 150.w,
-                                                child:
-                                                    Center(child: Text('5'))),
-                                            SizedBox(
-                                                width: 150.w,
-                                                child:
-                                                    Center(child: Text('2'))),
-                                            SizedBox(
-                                                width: 150.w,
-                                                child:
-                                                    Center(child: Text('9'))),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(right: 40.w),
-                                              child: SizedBox(
-                                                child: Row(
-                                                  children: [
-                                                    IconButton(
-                                                        onPressed: () {
-                                                          String status = model
-                                                                  .allUser[
-                                                                      index]
-                                                                  .isUserBlocked!
-                                                              ? 'unblock'
-                                                              : 'block';
-                                                          showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (BuildContext
-                                                                    context) {
-                                                              return Customdailog(
-                                                                picture: model
-                                                                        .allUser[
-                                                                            index]
-                                                                        .isUserBlocked!
-                                                                    ? const Icon(
-                                                                        Icons
-                                                                            .block,
-                                                                        color: Colors
-                                                                            .teal,
-                                                                      )
-                                                                    : const Icon(
-                                                                        Icons
-                                                                            .remove_circle_outline,
-                                                                        color: Colors
-                                                                            .red,
-                                                                      ),
-                                                                ontap: () {
-                                                                  model.blockFunction(
-                                                                      model
-                                                                          .allUser[
-                                                                              index]
-                                                                          .id,
-                                                                      model
-                                                                          .allUser[
-                                                                              index]
-                                                                          .isUserBlocked!);
-
-                                                                  model
-                                                                      .loaderfunction(
-                                                                    model
-                                                                        .allUser[
-                                                                            index]
-                                                                        .id,
-                                                                  );
-
-                                                                  Get.back();
-                                                                },
-                                                                ontap2: () {
-                                                                  Get.back();
-                                                                },
-                                                                text:
-                                                                    '${model.allUser[index].name}',
-                                                                subtext:
-                                                                    ' Do you want to $status this user?',
-                                                                buttonText:
-                                                                    '$status',
-                                                                btn2text:
-                                                                    'Cancel',
-                                                              );
-                                                            },
-                                                          );
-                                                        
-                                                        
-                                                        },
-                                                        icon: model
-                                                                .allUser[index]
-                                                                .isUserBlocked!
-                                                            ? const Icon(
-                                                                Icons.block,
-                                                                color:
-                                                                    Colors.teal,
-                                                              )
-                                                            : const Icon(
-                                                                Icons
-                                                                    .remove_circle_outline,
-                                                                color:
-                                                                    Colors.red,
-                                                              )
-
-                                                        //remove_circle_outline
-                                                        ),
-                                                    IconButton(
-                                                        onPressed: () {
-                                                          showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (BuildContext
-                                                                    context) {
-                                                              return Customdailog(
-                                                                picture: Icon(
-                                                                    Icons
-                                                                        .delete,
-                                                                    size:
-                                                                        100.sp,
+                                                  child: Text('${index + 1}'))),
+                                        ),
+                                        SizedBox(
+                                          width: 100.w,
+                                          child: Center(
+                                            child: Text(
+                                                '${model.allUser[index].name}'),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            width: 150.w,
+                                            child: Center(child: Text('5'))),
+                                        SizedBox(
+                                            width: 150.w,
+                                            child: Center(child: Text('2'))),
+                                        SizedBox(
+                                            width: 150.w,
+                                            child: Center(child: Text('9'))),
+                                        Padding(
+                                          padding: EdgeInsets.only(right: 40.w),
+                                          child: SizedBox(
+                                            child: Row(
+                                              children: [
+                                                IconButton(
+                                                    onPressed: () {
+                                                      String status = model
+                                                              .allUser[index]
+                                                              .isUserBlocked!
+                                                          ? 'unblock'
+                                                          : 'block';
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return Customdailog(
+                                                            picture: model
+                                                                    .allUser[
+                                                                        index]
+                                                                    .isUserBlocked!
+                                                                ? const Icon(
+                                                                    Icons.block,
                                                                     color: Colors
-                                                                        .red),
-                                                                ontap: () {
-                                                                  model.loaderfunction(model
+                                                                        .teal,
+                                                                  )
+                                                                : const Icon(
+                                                                    Icons
+                                                                        .remove_circle_outline,
+                                                                    color: Colors
+                                                                        .red,
+                                                                  ),
+                                                            ontap: () {
+                                                              model.blockFunction(
+                                                                  model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .id,
+                                                                  model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .isUserBlocked!);
+
+                                                              model
+                                                                  .loaderfunction(
+                                                                model
+                                                                    .allUser[
+                                                                        index]
+                                                                    .id,
+                                                              );
+
+                                                              Get.back();
+                                                            },
+                                                            ontap2: () {
+                                                              Get.back();
+                                                            },
+                                                            text:
+                                                                '${model.allUser[index].name}',
+                                                            subtext:
+                                                                ' Do you want to $status this user?',
+                                                            buttonText:
+                                                                '$status',
+                                                            btn2text: 'Cancel',
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    icon: model.allUser[index]
+                                                            .isUserBlocked!
+                                                        ? const Icon(
+                                                            Icons.block,
+                                                            color: Colors.teal,
+                                                          )
+                                                        : const Icon(
+                                                            Icons
+                                                                .remove_circle_outline,
+                                                            color: Colors.red,
+                                                          )
+
+                                                    //remove_circle_outline
+                                                    ),
+                                                IconButton(
+                                                    onPressed: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return Customdailog(
+                                                            picture: Icon(
+                                                                Icons.delete,
+                                                                size: 100.sp,
+                                                                color:
+                                                                    Colors.red),
+                                                            ontap: () {
+                                                              model.loaderfunction(
+                                                                  model
                                                                       .allUser[
                                                                           index]
                                                                       .id);
-                                                                  model.deleteUser(
-                                                                      model
-                                                                          .allUser[
-                                                                              index]
-                                                                          .id!,
-                                                                      model
-                                                                          .allUser[
-                                                                              index]
-                                                                          .email!,
-                                                                      model
-                                                                          .allUser[
-                                                                              index]
-                                                                          .password!);
-                                                                  Get.back();
-                                                                },
-                                                                ontap2: () {
-                                                                  Get.back();
-                                                                },
-                                                                text:
-                                                                    '${model.allUser[index].name}',
-                                                                subtext:
-                                                                    ' Do you want to delete this user permanently?',
-                                                                buttonText:
-                                                                    'Delete',
-                                                                btn2text:
-                                                                    'Cancel',
-                                                              );
+                                                              model.deleteUser(
+                                                                  model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .id!,
+                                                                  model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .email!,
+                                                                  model
+                                                                      .allUser[
+                                                                          index]
+                                                                      .password!);
+                                                              Get.back();
                                                             },
+                                                            ontap2: () {
+                                                              Get.back();
+                                                            },
+                                                            text:
+                                                                '${model.allUser[index].name}',
+                                                            subtext:
+                                                                ' Do you want to delete this user permanently?',
+                                                            buttonText:
+                                                                'Delete',
+                                                            btn2text: 'Cancel',
                                                           );
-                                                        
-                                                        
                                                         },
-                                                        icon: const Icon(
-                                                            Icons.delete))
-                                                  ],
-                                                ),
-                                              ),
+                                                      );
+                                                    },
+                                                    icon: const Icon(
+                                                        Icons.delete))
+                                              ],
                                             ),
-                                          ]),
-                                    ),
-                                  ),
+                                          ),
+                                        ),
+                                      ]),
                                 ),
-                              );
-                      },
-                    ),
+                              ),
+                            );
+                    },
                   ),
                 ),
               ],
