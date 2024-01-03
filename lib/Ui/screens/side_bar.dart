@@ -1,5 +1,5 @@
 import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.dart';
-import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/institution_profile.dart';
+import 'package:englishtalkedesktop/Ui/screens/institution_profile/institution_profile.dart';
 import 'package:englishtalkedesktop/Ui/screens/app_submission_screen/app_submission.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/create_user_screen/create_user_screen.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_users.dart';
