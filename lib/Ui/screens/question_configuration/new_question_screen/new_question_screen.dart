@@ -44,82 +44,87 @@ class _NewQuestionScreenState extends State<NewQuestionScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10.h),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: cstListBox(
-                        onchanged: (String? newValue) {
-                          model.newQuestionModel.typeOfQuestion = newValue;
-                        },
-                        values: const [
-                          'Fresh Inspection Question',
-                          'Review Inspection Question',
-                          'Renewal Inspection Question'
-                        ],
-                        hint: 'Select Question Type',
-                      ),
-                    ),
                     SizedBox(
-                      height: 10.h,
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: cstListBox(
-                        onchanged: (String? newValue) {
-                          model.newQuestionModel.mainGroup = newValue;
-                        },
-                        values: const [
-                          'Management',
-                          'Registration',
-                          'Board of Governors',
-                          'Disciplines(s)',
-                          'Teaching Faculty',
-                          'Library - Racks Center Table & Chair',
-                          'Infrastructure / General Facilities',
-                          'Gross Area',
-                          'Website',
-                          'Hostel: - Cubicle: Dormitories: Dining & Gross Space',
-                          'Scholarships and Free Ships',
-                          'Finance',
+                      width: 900.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 50.h),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: cstListBox(
+                              onchanged: (String? newValue) {
+                                model.newQuestionModel.typeOfQuestion =
+                                    newValue;
+                              },
+                              values: const [
+                                'Fresh Inspection Question',
+                                'Review Inspection Question',
+                                'Renewal Inspection Question'
+                              ],
+                              hint: 'Select Question Type',
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: cstListBox(
+                              onchanged: (String? newValue) {
+                                model.newQuestionModel.mainGroup = newValue;
+                              },
+                              values: const [
+                                'Management',
+                                'Registration',
+                                'Board of Governors',
+                                'Disciplines(s)',
+                                'Teaching Faculty',
+                                'Library - Racks Center Table & Chair',
+                                'Infrastructure / General Facilities',
+                                'Gross Area',
+                                'Website',
+                                'Hostel: - Cubicle: Dormitories: Dining & Gross Space',
+                                'Scholarships and Free Ships',
+                                'Finance',
+                              ],
+                              hint: 'Select Main Group',
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          CustomTextField(
+                            labelText: 'Question Text',
+                            onChanged: (value) {
+                              model.newQuestionModel.question = value;
+                            },
+                          ),
+                          SizedBox(height: 10.h),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: cstListBox(
+                              onchanged: (String? newValue) {
+                                model.newQuestionModel.questionGroup = newValue;
+                              },
+                              values: const [
+                                'Medical College',
+                                'Engineering College',
+                                'Degree Awarding Institute',
+                                'University'
+                                    'Allied Health Sciences',
+                                'Homepatheic College',
+                                'Professional College',
+                                'General College',
+                                'Vocational College',
+                              ],
+                              hint: 'Select Question Group',
+                            ),
+                          ),
+                          SizedBox(height: 40.h),
                         ],
-                        hint: 'Select Main Group',
                       ),
                     ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    // CustomTextField(
-                    //   labelText: 'Question No',
-                    // ),
-                    // SizedBox(height: 10.h),
-                    CustomTextField(
-                      labelText: 'Question Text',
-                      onChanged: (value) {
-                        model.newQuestionModel.question = value;
-                      },
-                    ),
-                    SizedBox(height: 10.h),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: cstListBox(
-                        onchanged: (String? newValue) {
-                          model.newQuestionModel.questionGroup = newValue;
-                        },
-                        values: const [
-                          'Medical College',
-                          'Engineering College',
-                          'Degree Awarding Institute',
-                          'University'
-                              'Allied Health Sciences',
-                          'Homepatheic College',
-                          'Professional College',
-                          'General College',
-                          'Vocational College',
-                        ],
-                        hint: 'Select Question Group',
-                      ),
-                    ),
-                    SizedBox(height: 20.h),
                     model.isloader
                         ? Center(child: CircularProgressIndicator())
                         : Row(
