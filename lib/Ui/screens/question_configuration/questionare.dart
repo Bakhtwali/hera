@@ -54,11 +54,6 @@ class Questionare extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    // Image.asset(
-                                    //   clock,
-                                    //   width: 50.w,
-                                    //   height: 50.h,
-                                    // ),
                                     CustomSizedBox(width: 30.w),
                                     CustomText(
                                       text: 'Add New Question',
@@ -95,11 +90,6 @@ class Questionare extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    // Image.asset(
-                                    //   tick,
-                                    //   width: 50.w,
-                                    //   height: 50.h,
-                                    // ),
                                     CustomSizedBox(width: 30.w),
                                     CustomText(
                                       text: 'View All Question',

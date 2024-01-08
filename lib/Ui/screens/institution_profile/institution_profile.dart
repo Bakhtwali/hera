@@ -112,10 +112,7 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                             ),
                             Row(
                               children: [
-                                // Image.network(
-                                //     "https://firebasestorage.googleapis.com/v0/b/herainspection-4e99a.appspot.com/o/school%2Fprofile2.jpeg%2Fdatas%201704457132041000?alt=media&token=bcb15a46-092b-406e-8fa9-b514d847fc6a"
-                                //     // 'https://firebasestorage.googleapis.com/v0/b/herainspection-4e99a.appspot.com/o/AdminData%2Fprofile.jpeg?alt=media&token=a6fe2c33-6f37-44f1-9750-aa565b29ca80'
-                                //     ),
+                              
                                 CircleAvatar(
                                   radius: 20.0,
                                   backgroundImage:
@@ -144,10 +141,11 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                         ),
                       ),
                     ),
+
                     SizedBox(height: 30.h),
                     Row(
                       children: [
-                        Container(
+                        SizedBox(
                             width: 900.w,
                             height: 900.h,
                             child: Column(
