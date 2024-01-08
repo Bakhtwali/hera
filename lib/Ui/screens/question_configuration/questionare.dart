@@ -6,10 +6,8 @@ import 'package:englishtalkedesktop/Ui/screens/question_configuration/new_questi
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question.dart';
 import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/SizedBox.dart';
-import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class Questionare extends StatelessWidget {

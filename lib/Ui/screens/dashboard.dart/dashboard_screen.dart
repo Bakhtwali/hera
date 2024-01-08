@@ -128,7 +128,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         SizedBox(
                             width: 700.w,
                             height: 750.h,
-                            //color: Colors.red, // You can change the color as desired
+                            // color: Colors.red.withOpacity(0.5), // You can change the color as desired
                             child: TableCalendar(
                               focusedDay: today,
                               firstDay: DateTime.utc(2010, 10, 16),
@@ -136,9 +136,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             )),
                         Container(
                           // color: Colors.amber,
-                          width: 300.w,
-                          height: 300.h,
-                          //color: Colors.grey.withOpacity(1.0),
+                          width: 500.w,
+                          height: 500.h,
+                          // color: Colors.grey.withOpacity(1.0),
                           child: PieChart(
                             PieChartData(
                               sections: [
@@ -155,7 +155,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   radius: 80,
                                 ),
                                 PieChartSectionData(
-                                  color: Colors.blueAccent.withOpacity(0.5),
+                                  color: Colors.blueAccent,
+                                  //.withOpacity(0.5),
                                   value: 50.sp,
                                   title: 'Completed',
                                   radius: 80,
