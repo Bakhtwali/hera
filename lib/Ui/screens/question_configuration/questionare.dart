@@ -3,7 +3,7 @@
 import 'package:englishtalkedesktop/Ui/custom_widget/custom_dailog/delet_dailog.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/questionare_peovider.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/new_question_screen/new_question_screen.dart';
-import 'package:englishtalkedesktop/Ui/screens/question_configuration/shoq_all_question/show_all_question.dart';
+import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question.dart';
 import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/SizedBox.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_button.dart';

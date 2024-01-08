@@ -5,7 +5,7 @@ import 'package:englishtalkedesktop/Ui/screens/user_screen/create_user_screen/cr
 import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_users.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/new_question_screen/new_question_screen.dart';
-import 'package:englishtalkedesktop/Ui/screens/question_configuration/shoq_all_question/show_all_question.dart';
+import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/user_screen.dart';
 import 'package:englishtalkedesktop/core/Constants/constants.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/SizedBox.dart';

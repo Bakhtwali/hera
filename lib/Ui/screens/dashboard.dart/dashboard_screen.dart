@@ -134,9 +134,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               firstDay: DateTime.utc(2010, 10, 16),
                               lastDay: DateTime.utc(2099, 10, 16),
                             )),
-                        SizedBox(
-                          width: 700.w,
-                          height: 750.h,
+                        Container(
+                          // color: Colors.amber,
+                          width: 300.w,
+                          height: 300.h,
                           //color: Colors.grey.withOpacity(1.0),
                           child: PieChart(
                             PieChartData(
@@ -145,19 +146,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   color: Colors.lightGreen.withOpacity(0.5),
                                   value: 50.sp,
                                   title: 'Total Forwarded',
-                                  radius: 120,
+                                  radius: 80,
                                 ),
                                 PieChartSectionData(
                                   color: Colors.redAccent.withOpacity(0.5),
                                   value: 50.sp,
                                   title: 'Pending',
-                                  radius: 120,
+                                  radius: 80,
                                 ),
                                 PieChartSectionData(
                                   color: Colors.blueAccent.withOpacity(0.5),
                                   value: 50.sp,
                                   title: 'Completed',
-                                  radius: 120,
+                                  radius: 80,
                                 ),
                                 // Add a section for Total if needed
                               ],

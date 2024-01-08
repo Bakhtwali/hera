@@ -40,18 +40,6 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
     });
   }
 
-  Future<File?> getImage() async {
-    final picker = ImagePicker();
-    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedImage != null) {
-      File imageFile = File(pickedImage.path);
-      print('This is the image path: ${imageFile.path}');
-      return imageFile; // Return the image file
-    }
-
-    return null; // Return null if no image is picked
-  }
 
   void handleDateSelected(DateTime? date) {
     setState(() {
@@ -124,6 +112,10 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                             ),
                             Row(
                               children: [
+                                // Image.network(
+                                //     "https://firebasestorage.googleapis.com/v0/b/herainspection-4e99a.appspot.com/o/school%2Fprofile2.jpeg%2Fdatas%201704457132041000?alt=media&token=bcb15a46-092b-406e-8fa9-b514d847fc6a"
+                                //     // 'https://firebasestorage.googleapis.com/v0/b/herainspection-4e99a.appspot.com/o/AdminData%2Fprofile.jpeg?alt=media&token=a6fe2c33-6f37-44f1-9750-aa565b29ca80'
+                                //     ),
                                 CircleAvatar(
                                   radius: 20.0,
                                   backgroundImage:
@@ -411,7 +403,7 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                                 ElevatedButton(
                                                   onPressed: () async {
                                                     model.heraCertificate =
-                                                        await getImage();
+                                                      await  model.getImage();
                                                   },
                                                   child: Text("Select Image"),
                                                 ),
@@ -438,8 +430,9 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                                 ),
                                                 ElevatedButton(
                                                   onPressed: () async {
-                                                    model.publicSectorUniversityCertificate =
-                                                        await getImage();
+                                                   
+                                                         model.publicSectorUniversityCertificate =
+                                                      await  model.getImage();
                                                   },
                                                   child: Text("Select Image"),
                                                 ),
@@ -466,8 +459,10 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                                 ),
                                                 ElevatedButton(
                                                   onPressed: () async {
-                                                    model.counilAffiationCertificate =
-                                                        await getImage();
+                                                  
+                                                           model.counilAffiationCertificate =
+                                                      await  model.getImage();
+                                                        
                                                   },
                                                   child: Text("Select Image"),
                                                 ),
@@ -493,8 +488,9 @@ class _InstitutionProfileState extends State<InstitutionProfile> {
                                                 ),
                                                 ElevatedButton(
                                                   onPressed: () async {
-                                                    model.instituteLogo =
-                                                        await getImage();
+                                                    
+                                                           model.instituteLogo =
+                                                      await  model.getImage();
                                                   },
                                                   child: Text("Select Image"),
                                                 ),

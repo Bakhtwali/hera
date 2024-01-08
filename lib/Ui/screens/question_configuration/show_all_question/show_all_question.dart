@@ -1,4 +1,4 @@
-import 'package:englishtalkedesktop/Ui/screens/question_configuration/shoq_all_question/show_all_question_provider.dart';
+import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question_provider.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
