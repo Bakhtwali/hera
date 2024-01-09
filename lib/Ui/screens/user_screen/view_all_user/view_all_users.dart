@@ -19,7 +19,9 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
       builder: (context, model, child) => Row(
         children: [
           Expanded(
-            child: Column(
+            child: 
+            
+            Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Card(
@@ -57,17 +59,7 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                               'Action',
                               style: TextStyle(fontSize: 16.sp),
                             ),
-                            // Row(
-                            //   children: [
-                            //     IconButton(
-                            //       onPressed: () {},
-                            //       icon: Icon(Icons.edit),
-                            //     ),
-                            //     IconButton(
-                            //         onPressed: () {},
-                            //         icon: Icon(Icons.delete))
-                            //   ],
-                            // )
+                           
                           ]),
                           
                           
@@ -262,6 +254,8 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                 ),
               ],
             ),
+         
+         
           ),
         ],
       ),

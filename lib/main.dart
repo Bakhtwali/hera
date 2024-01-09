@@ -1,4 +1,5 @@
 import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.dart';
+import 'package:englishtalkedesktop/Ui/screens/institution_profile/show_all_institution/show_all_institution_provider.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question_provider.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_user_provider.dart';
 import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
@@ -45,6 +46,9 @@ class MyApp extends StatelessWidget {
             ),
             ChangeNotifierProvider<ShowAllquestionprovider>(
               create: (context) => ShowAllquestionprovider(),
+            ),
+            ChangeNotifierProvider<ShowAllInstitutionProvider>(
+              create: (context) => ShowAllInstitutionProvider(),
             ),
           ],
           child: GetMaterialApp(
