@@ -123,7 +123,9 @@ class Questionare extends StatelessWidget {
                 CustomSizedBox(height: 40.h),
                 model.isActive ? NewQuestionScreen() : ShowAllQuestion()
               ],
-            )),
+            ),
+            ),
+         
           ],
         )),
       ),
