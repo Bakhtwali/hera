@@ -7,27 +7,34 @@ class ShowAllInstitutionProvider extends ChangeNotifier {
   ShowAllInstitutionProvider() {
     getallInstitutions();
   }
+  String loaderid = '';
   InstituteProfileModel instituteProfileModel = InstituteProfileModel();
   List<InstituteProfileModel> instituteProfileModelList = [];
   getallInstitutions() {
-    instituteProfileModelList = [];
     print('this is the get all institution');
     FirebaseFirestore.instance
         .collection('InstituteProfile')
         .snapshots()
         .listen((event) {
-      event.docs.forEach((element) {
+      instituteProfileModelList = [];
+      for (var element in event.docs) {
         instituteProfileModelList
             .add(InstituteProfileModel.fromJson(element.data(), element.id));
-      });
+      }
       notifyListeners();
     });
-    //     .then((value) {
-    //   value.docs.forEach((element) {
-    //     instituteProfileModelList
-    //         .add(InstituteProfileModel.fromJson(element.data(), element.id));
-    //   });
-    // });
+
+    notifyListeners();
+  }
+
+  deleteFunction(id) async {
+    loaderid = id;
+    notifyListeners();
+    await FirebaseFirestore.instance
+        .collection('InstituteProfile')
+        .doc(id)
+        .delete();
+    loaderid = '';
     notifyListeners();
   }
 }

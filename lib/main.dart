@@ -13,8 +13,6 @@ import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-  //flutter pub add
   setPathUrlStrategy();
   if (kIsWeb) {
     await Firebase.initializeApp(
