@@ -1,5 +1,6 @@
 import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.dart';
 import 'package:englishtalkedesktop/Ui/screens/institution_profile/show_all_institution/show_all_institution_provider.dart';
+import 'package:englishtalkedesktop/Ui/screens/login_screen/login_screen.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question_provider.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_user_provider.dart';
 import 'package:englishtalkedesktop/Ui/screens/side_bar.dart';
@@ -58,7 +59,8 @@ class MyApp extends StatelessWidget {
                   seedColor: const Color.fromARGB(255, 244, 244, 244)),
               useMaterial3: true,
             ),
-            home: DashboardScreen(),
+            home: LoginScreen(),
+            // DashboardScreen(),
           ),
         );
         // );

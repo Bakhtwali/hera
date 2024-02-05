@@ -2,7 +2,6 @@ import 'package:englishtalkedesktop/Ui/screens/dashboard.dart/dashboard_screen.d
 import 'package:englishtalkedesktop/Ui/screens/institution_profile/institution_profile.dart';
 import 'package:englishtalkedesktop/Ui/screens/app_submission_screen/app_submission.dart';
 import 'package:englishtalkedesktop/Ui/screens/user_screen/create_user_screen/create_user_screen.dart';
-import 'package:englishtalkedesktop/Ui/screens/user_screen/view_all_user/view_all_users.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/questionare.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/new_question_screen/new_question_screen.dart';
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question.dart';
@@ -44,24 +43,31 @@ class _SideBarState extends State<SideBar> {
         width: 350.w,
         child: Column(children: [
           CustomSizedBox(height: 20.h),
-          Container(
-            //color: Colors.red,
-            width: 100,
-            height: 100,
-            child: Image.asset(
-              'assets/hera-final.png',
-              width: 100.w,
-              height: 100.h,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                //color: Colors.red,
+                width: 100,
+                height: 100,
+                child: Image.asset(
+                  'assets/hera-final.png',
+                  width: 100.w,
+                  height: 100.h,
+                ),
+              ),
+              SizedBox(width: 20.w),
+              Text(
+                'HERA',
+                style: TextStyle(
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.w900,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ],
           ),
-          Text(
-            'HERA',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              backgroundColor: Colors.white,
-            ),
-          ),
+
           CustomSizedBox(height: 40.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -72,7 +78,7 @@ class _SideBarState extends State<SideBar> {
                 height: 8.h,
                 width: 150.w,
                 decoration: BoxDecoration(
-                    color: kAmberColor,
+                    color: KGrayColorForDashboard,
                     borderRadius: BorderRadius.all(Radius.circular(20.r))),
               )
             ],
@@ -83,105 +89,12 @@ class _SideBarState extends State<SideBar> {
               itemCount: sidebarPage.length,
               itemBuilder: (context, index) {
                 bool active = Get.currentRoute == sidebarPage[index].route;
-                // bool isQuestionConfig =
-                //     sidebarPage[index].text == 'Question Configuration';
-                // print('this is ${sidebarPage[index].text}');
-                // if (isQuestionConfig) {
-                //   return Column(
-                //     children: [
-                //       ListTile(
-                //         leading: Image.asset(
-                //           sidebarPage[index].Image,
-                //           height: 34.h,
-                //           width: 32.w,
-                //           color: active ? kAmberColor : KGrayColorForDashboard,
-                //         ),
-                //         title: ClipPath(
-                //           child: Container(
-                //             height: 50.h,
-                //             width: 270.w,
-                //             color: active
-                //                 ? Colors.transparent
-                //                 : Color.fromARGB(0, 39, 50, 145),
-                //             child: Padding(
-                //               padding: EdgeInsets.only(left: 10.w, top: 10.h),
-                //               child: CustomText(
-                //                 text: sidebarPage[index].text,
-                //                 color: active
-                //                     ? Colors.black
-                //                     : KGrayColorForDashboard,
-                //               ),
-                //             ),
-                //           ),
-                //         ),
-                //         onTap: () {
-                //           setState(() {
-                //             if (_selectedItem?.text ==
-                //                 sidebarPage[index].text) {
-                //               _isQuestionConfigExpanded =
-                //                   !_isQuestionConfigExpanded;
-                //             } else {
-                //               _isQuestionConfigExpanded = true;
-                //               _selectedItem = sidebarPage[index];
-                //             }
-                //           });
-                //           if (sidebarPage[index].text == 'Screen 1') {
-                //             Get.toNamed('/screen1');
-                //           } else {
-                //             Get.toNamed(sidebarPage[index].route);
-                //           }
-                //         },
-                //       ),
-                //       if (_isQuestionConfigExpanded)
-                //         Padding(
-                //           padding: EdgeInsets.symmetric(
-                //               horizontal: 16.0), // Adjust the padding as needed
-                //           child: Column(
-                //             children: [
-                //               Center(
-                //                 child: ListTile(
-                //                   leading:
-                //                       Icon(Icons.settings), // Icon added here
-                //                   title: Text('Adding New Question ',
-                //                       style: TextStyle(fontSize: 10)),
-                //                   onTap: () {
-                //                     Get.toNamed('/screen1');
-                //                   },
-                //                 ),
-                //               ),
-                //               ListTile(
-                //                 leading: Icon(Icons.list), // Icon added here
-                //                 title: Text(
-                //                   'View All Questions',
-                //                   style: TextStyle(fontSize: 10),
-                //                 ),
-                //                 onTap: () {
-                //                   Get.toNamed('/screen2');
-                //                 },
-                //               ),
-                //               ListTile(
-                //                 leading: Icon(Icons
-                //                     .swap_horizontal_circle), // Icon added here
-                //                 title: Text(
-                //                   'Question(s) Swapping',
-                //                   style: TextStyle(fontSize: 10),
-                //                 ),
-                //                 onTap: () {
-                //                   // Handle the onTap event here
-                //                 },
-                //               ),
-                //             ],
-                //           ),
-                //         )
-                //     ],
-                //   );
-                // } else {
                 return ListTile(
                   leading: Image.asset(
                     sidebarPage[index].Image,
                     height: 34.h,
                     width: 32.w,
-                    color: active ? kAmberColor : KGrayColorForDashboard,
+                    color: active ? BlackColor : KGrayColorForDashboard,
                   ),
                   title: ClipPath(
                     child: Padding(
@@ -258,7 +171,7 @@ List<GetPage> pages = [
   GetPage(
     name: "/screen1",
     page: () =>
-        NewQuestionScreen(), // Replace 'Screen1' with the actual screen you want to open
+        NewQuestionScreen(), 
     transition: Transition.fadeIn,
   ),
   GetPage(
@@ -269,6 +182,7 @@ List<GetPage> pages = [
     name: "/userscreen",
     page: () => UserScreen(),
   ),
+  
 ];
 List<SideBarModel> sidebarPage = [
   SideBarModel(text: "Dashboard", route: "/Home1", Image: Home),
@@ -281,19 +195,3 @@ List<SideBarModel> sidebarPage = [
       route: "/appsubmission",
       Image: message),
 ];
-
-class DiagonalClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path()
-      ..moveTo(20, 0)
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}

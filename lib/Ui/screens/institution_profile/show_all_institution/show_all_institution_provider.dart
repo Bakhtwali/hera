@@ -8,6 +8,8 @@ class ShowAllInstitutionProvider extends ChangeNotifier {
     getallInstitutions();
   }
   String loaderid = '';
+  bool isloadprofile = false;
+  int selectedindex = -1;
   InstituteProfileModel instituteProfileModel = InstituteProfileModel();
   List<InstituteProfileModel> instituteProfileModelList = [];
   getallInstitutions() {
@@ -35,6 +37,12 @@ class ShowAllInstitutionProvider extends ChangeNotifier {
         .doc(id)
         .delete();
     loaderid = '';
+    notifyListeners();
+  }
+
+  showprofile(status,index) {
+    selectedindex = index;
+    isloadprofile = status;
     notifyListeners();
   }
 }
