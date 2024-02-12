@@ -130,7 +130,6 @@ class UserScreen extends StatelessWidget {
                         ]),
                   ),
                 ),
-               
                 CustomSizedBox(height: 40.h),
                 model.isActive ? CreateUser() : ViewAllUsers()
               ],

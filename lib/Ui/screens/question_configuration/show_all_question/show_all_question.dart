@@ -1,4 +1,5 @@
 import 'package:englishtalkedesktop/Ui/screens/question_configuration/show_all_question/show_all_question_provider.dart';
+import 'package:englishtalkedesktop/core/custom_widgets/cstm_text_field.dart';
 import 'package:englishtalkedesktop/core/custom_widgets/custom_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -95,8 +96,67 @@ class _Screen1State extends State<ShowAllQuestion> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 20.h,
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      top: 10.h, right: 40.w, bottom: 10.h, left: 40.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          model.generateCSV();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.teal,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.r))),
+                          height: 30.h,
+                          width: 150.w,
+                          child: Center(
+                            child: Text(
+                              'Export to CSV',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 40.h,
+                        width: 600.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            // model.generateCSV();
+                          },
+                          child: cstListBox(
+                            onchanged: (String? newValue) {
+                              print('value is $newValue');
+                              model.filterQuestion(newValue);
+                              // model.newQuestionModel.mainGroup = newValue;
+                            },
+                            values: const [
+                              'Management',
+                              'Registration',
+                              'Board of Governors',
+                              'Disciplines(s)',
+                              'Teaching Faculty',
+                              'Library - Racks Center Table & Chair',
+                              'Infrastructure / General Facilities',
+                              'Gross Area',
+                              'Website',
+                              'Hostel: - Cubicle: Dormitories: Dining & Gross Space',
+                              'Scholarships and Free Ships',
+                              'Finance',
+                            ],
+                            hint: 'Sort by Main Group',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
               SizedBox(
                 height: 780.h,

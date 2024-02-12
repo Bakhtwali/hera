@@ -19,9 +19,7 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
       builder: (context, model, child) => Row(
         children: [
           Expanded(
-            child: 
-            
-            Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Card(
@@ -59,17 +57,13 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                               'Action',
                               style: TextStyle(fontSize: 16.sp),
                             ),
-                           
                           ]),
-                          
-                          
-                          
                     ),
                   ),
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 10.h),
                 SizedBox(
-                  height: 780.h,
+                  height: 760.h,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     itemCount: model.allUser
@@ -252,10 +246,34 @@ class _ViewAllUsersState extends State<ViewAllUsers> {
                     },
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(10.r)),
+                    width: 10.w,
+                    height: 30.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.import_export_outlined,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Export',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
-         
-         
           ),
         ],
       ),
