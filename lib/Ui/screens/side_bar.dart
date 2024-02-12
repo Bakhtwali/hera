@@ -159,36 +159,20 @@ List<GetPage> pages = [
     transition: Transition.fadeIn,
   ),
   GetPage(
-    name: "/Home4Screen",
-    page: () => CreateUser(),
-    transition: Transition.fadeIn,
-  ),
-  GetPage(
-    name: "/screen2",
-    page: () => ShowAllQuestion(),
-    transition: Transition.fadeIn,
-  ),
-  GetPage(
-    name: "/screen1",
-    page: () =>
-        NewQuestionScreen(), 
-    transition: Transition.fadeIn,
-  ),
-  GetPage(
     name: "/appsubmission",
     page: () => appSubmssion(),
+    transition: Transition.fadeIn,
   ),
   GetPage(
     name: "/userscreen",
     page: () => UserScreen(),
+    transition: Transition.fadeIn,
   ),
-  
 ];
 List<SideBarModel> sidebarPage = [
   SideBarModel(text: "Dashboard", route: "/Home1", Image: Home),
   SideBarModel(text: "Question Configuration", route: "/Home2", Image: profile),
   SideBarModel(text: "Institutions Profile", route: "/Home3", Image: tick_icon),
-  // SideBarModel(text: "Create User", route: "/Home4Screen", Image: message),
   SideBarModel(text: "View All Users", route: "/userscreen", Image: tick_icon),
   SideBarModel(
       text: "App Submission Configuration",

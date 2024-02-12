@@ -44,7 +44,7 @@ class loginProvider extends ChangeNotifier {
         } else {
           Get.snackbar('Alter', "Invalid credentail",
               colorText: WhiteColor,
-              backgroundColor: kAmberColor,
+              backgroundColor: Colors.teal,
               snackPosition: SnackPosition.BOTTOM);
           isloading = false;
           notifyListeners();

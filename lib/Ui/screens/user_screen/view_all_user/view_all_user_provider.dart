@@ -1,7 +1,9 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:englishtalkedesktop/core/model/create_user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 
 class UserProvider extends ChangeNotifier {
   UserProvider() {
@@ -66,6 +68,7 @@ class UserProvider extends ChangeNotifier {
     loaderid = '';
     notifyListeners();
   }
+
 
   loaderfunction(
     id,

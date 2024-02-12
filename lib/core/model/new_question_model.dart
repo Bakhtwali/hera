@@ -21,7 +21,7 @@ class NewQuestionModel {
     data['typeOfQuestion'] = typeOfQuestion;
     data['mainGroup'] = mainGroup;
     data['question'] = question;
-    data['confirmPassword'] = questionGroup;
+    data['questionGroup'] = questionGroup;
     data['createat'] = createat;
     return data;
   }
